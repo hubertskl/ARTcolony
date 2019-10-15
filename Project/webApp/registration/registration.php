@@ -4,7 +4,6 @@
 	
 	if(isset($_POST['email']))
 	{
-		//udana walidacja, zakladam ze tak
 		$wszystko_ok=true;
 		
 			if(isset($_POST['name']))
@@ -15,76 +14,67 @@
 			{
 				$surname=$_POST['family_name'];
 			}
-		//sprawdzenie poprawnosci nazwy uzytkownika
 		$username=$_POST['username'];
-		//sprawdzenie dlugosci nazwy uzytkownika
+
 		if((strlen($username)<3)||(strlen($username)>25))
 		{
 			$wszystko_ok=false;
-			$_SESSION['e_username']="Nazwa użytkownika musi zawierać od 3 do 25 znaków";
+			$_SESSION['e_username']="Login must have more chars";
 		}
 		
-		if(ctype_alnum($username)==false)//sprawdzamy znaki w nazwie uzytkownika
+		if(ctype_alnum($username)==false)
 		{
 			$wszystko_ok=false;
-			$_SESSION['e_username']="Nazwa użytkownika może składać się tylko z liter i cyfr(bez polskich znaków)";
+			$_SESSION['e_username']="only letters and numbers";
 		}
-		//poprawnosc adresu email
+		
 		$email=$_POST['email'];
-		$email2=filter_var($email, FILTER_SANITIZE_EMAIL);  //funkcja do walidacji maila - usuwa polskie znaki
+		$email2=filter_var($email, FILTER_SANITIZE_EMAIL);  
 		
 		if((filter_var($email2,FILTER_SANITIZE_EMAIL)==false) || ($email2!=$email))
 		{
 			$wszystko_ok=false;
-			$_SESSION['e_email']="Nie poprawny email";
+			$_SESSION['e_email']="Invalid email";
 		}
 		
-		//sprawdzenie poprawnosci hasel
 		$password1=$_POST['password1'];
 		$password2=$_POST['password2'];
 		
 		if((strlen($password1)<3)||(strlen($password1)>25))
 		{
 			$wszystko_ok=false;
-			$_SESSION['e_password1']="Hasło musi zawierać od 3 do 25 znaków";
+			$_SESSION['e_password1']="The password must contain between 3 and 25 characters";
 		}
 		if($password1!=$password2)
 		{
 			$wszystko_ok=false;
-			$_SESSION['e_password2']="Hasła nie są identyczne";
+			$_SESSION['e_password2']="Passwords do not match";
 		}
 		
-		$passwordhash = password_hash($password1, PASSWORD_DEFAULT); // pohashuj hasela uzytkownikow xd
+		$passwordhash = password_hash($password1, PASSWORD_DEFAULT); 
 		
-		//akceptacja rgulaminu
+		
 		if(!isset($_POST['regulamin']))
 		{
 			$wszystko_ok=false;
-			$_SESSION['e_regulamin']="Trzeba zaakceptować regulamin";
+			$_SESSION['e_regulamin']="You must accept the regulations";
 		}
 		
 		
-		//require_once "connect.php";
-			//mysqli_report(MYSQLI_REPORT_STRICT); // zeby brzydkich bladow uzytkownikom nie wyrzucal php
 		
 			try{
 				require_once '../../connection/connectWithDB.php';
-			
-				//Czy email już istnieje?
-				//$rezultat1 = $polaczenie->query("SELECT id_uzytkownika FROM uzytkownicy WHERE email='$email'");
 				
 				$qu1=$db->prepare('SELECT id_user FROM users WHERE email=:email1');
 				$qu1->bindValue(':email1', $email, PDO::PARAM_STR);
 				$qu1->execute();
+		
+				$mailNumber=$qu1->rowCount();
 				
-				
-				//if (!$rezultat1) throw new Exception($polaczenie->error);
-				$ilosc_maili=$qu1->rowCount();
-				//$ilosc_maili = $db->num_rows;
-				if($ilosc_maili>0)
+				if($mailNumber>0)
 				{
 					$wszystko_ok=false;
-					$_SESSION['e_email']="Istnieje konto z takim e-mailem";
+					$_SESSION['e_email']="There is an account with this email";
 				}
 				//
 				$rezultat1 = $db->prepare('SELECT id_user FROM users WHERE login=:username1');
@@ -95,14 +85,13 @@
 				if($ilosc_usern>0)
 				{
 					$wszystko_ok=false;
-					$_SESSION['e_username']="Ta nazwa użytkownika jest zajęta";
+					$_SESSION['e_username']="This username is taken"
 				}
 				if($wszystko_ok==true)
 				{
-					//wszystko ok wiec dodajemy osobe do bazy
-					//$wstawianie=$db->query($q3);
-					$result5=$db->prepare("INSERT INTO users (login, password, name, family_name, email) VALUES (:username,:password,:name,:family_name,:email)"); //!!!!!!
-					//$result5->bindParam("sssss",$username,$passwordhash,$name,$surname,$email);
+					
+					$result5=$db->prepare("INSERT INTO users (login, password, name, family_name, email) VALUES (:username,:password,:name,:family_name,:email)"); 
+					
 					$result5->bindParam(':username',$username);
 					$result5->bindParam(':password',$passwordhash);
 					$result5->bindParam(':name',$name);
@@ -114,7 +103,7 @@
 					$result5->execute();
 					
 					
-						$_SESSION['udanarejestracja']=true;
+						$_SESSION['successful_registration']=true;
 						
 						header('Location: afterRegistration.php');
 				
@@ -124,14 +113,11 @@
 		catch(Exception $e)
 		{
 			echo '<span style="color:red;">Błąd servera!</span>';
-			echo '<br />Informacja developerska: '.$e;
+			echo '<br />Info: '.$e;
 		}
-		
-		
+			
 		
 	}
-
-
 
 ?>
 
@@ -146,7 +132,7 @@
 </head>
 <body>
 	<div id="container">
-		<div id="tytul_strony"><a  href="../index.html">Home</a><br><br>
+		<div id="page-title"><a  href="../index.html">Home</a><br><br>
 			<a href="../login/login.php">Login</a>
 		</div>
 		
@@ -194,7 +180,7 @@
 						}
 					?>
 					<label>
-					<input type="checkbox" name="regulamin" /> accept regulamin
+					<input type="checkbox" name="regulamin" /> I accept the conditions
 					</label>
 					<?php
 						if(isset($_SESSION['e_regulamin']))
@@ -203,7 +189,7 @@
 							unset($_SESSION['e_regulamin']);
 						}
 					?>
-					<div class="przycisk_logowania"><p><input type="submit" value="Register"></p></div>
+					<div class="login-button"><p><input type="submit" value="Register"></p></div>
 					</form>
 				</div>
 	
