@@ -4,7 +4,7 @@
 	
 	if(isset($_POST['email']))
 	{
-		$wszystko_ok=true;
+		$allright=true;
 		
 			if(isset($_POST['name']))
 			{
@@ -18,13 +18,13 @@
 
 		if((strlen($username)<3)||(strlen($username)>25))
 		{
-			$wszystko_ok=false;
+			$allright=false;
 			$_SESSION['e_username']="Login must have more chars";
 		}
 		
 		if(ctype_alnum($username)==false)
 		{
-			$wszystko_ok=false;
+			$allright=false;
 			$_SESSION['e_username']="only letters and numbers";
 		}
 		
@@ -33,7 +33,7 @@
 		
 		if((filter_var($email2,FILTER_SANITIZE_EMAIL)==false) || ($email2!=$email))
 		{
-			$wszystko_ok=false;
+			$allright=false;
 			$_SESSION['e_email']="Invalid email";
 		}
 		
@@ -42,22 +42,22 @@
 		
 		if((strlen($password1)<3)||(strlen($password1)>25))
 		{
-			$wszystko_ok=false;
+			$allright=false;
 			$_SESSION['e_password1']="The password must contain between 3 and 25 characters";
 		}
 		if($password1!=$password2)
 		{
-			$wszystko_ok=false;
+			$allright=false;
 			$_SESSION['e_password2']="Passwords do not match";
 		}
 		
 		$passwordhash = password_hash($password1, PASSWORD_DEFAULT); 
 		
 		
-		if(!isset($_POST['regulamin']))
+		if(!isset($_POST['conditions']))
 		{
-			$wszystko_ok=false;
-			$_SESSION['e_regulamin']="You must accept the regulations";
+			$allright=false;
+			$_SESSION['e_conditions']="You must accept the regulations";
 		}
 		
 		
@@ -73,7 +73,7 @@
 				
 				if($mailNumber>0)
 				{
-					$wszystko_ok=false;
+					$allright=false;
 					$_SESSION['e_email']="There is an account with this email";
 				}
 				//
@@ -84,10 +84,10 @@
 				$ilosc_usern = $rezultat1->rowCount();
 				if($ilosc_usern>0)
 				{
-					$wszystko_ok=false;
-					$_SESSION['e_username']="This username is taken"
+					$allright=false;
+					$_SESSION['e_username']="This username is taken";
 				}
-				if($wszystko_ok==true)
+				if($allright==true)
 				{
 					
 					$result5=$db->prepare("INSERT INTO users (login, password, name, family_name, email) VALUES (:username,:password,:name,:family_name,:email)"); 
@@ -112,7 +112,7 @@
 		}
 		catch(Exception $e)
 		{
-			echo '<span style="color:red;">Błąd servera!</span>';
+			echo '<span style="color:red;">Server ERROR!</span>';
 			echo '<br />Info: '.$e;
 		}
 			
@@ -180,13 +180,13 @@
 						}
 					?>
 					<label>
-					<input type="checkbox" name="regulamin" /> I accept the conditions
+					<input type="checkbox" name="conditions" /> I accept the conditions
 					</label>
 					<?php
-						if(isset($_SESSION['e_regulamin']))
+						if(isset($_SESSION['e_conditions']))
 						{
-							echo '<div class="error">'.$_SESSION['e_regulamin'].'</div>';
-							unset($_SESSION['e_regulamin']);
+							echo '<div class="error">'.$_SESSION['e_conditions'].'</div>';
+							unset($_SESSION['e_conditions']);
 						}
 					?>
 					<div class="login-button"><p><input type="submit" value="Register"></p></div>
