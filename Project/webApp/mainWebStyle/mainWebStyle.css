@@ -2,15 +2,65 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+body {
+	background-color: black;
+}
+
 .box{
 	
 }
+
+@font-face {
+	font-family: AlegreyaSansBold;
+	src: url("../../../Graphics/Fonts/AlegreyaSansSC-Bold.otf");
+}
+
+@font-face {
+	font-family: AlegreyaSansThin;
+	src: url("../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf");
+}
+
 .title-box{
-	background-color: black;
-	padding: 2%;
+	background-image: url("../../../Graphics/Graphics_color/ARTcolony_banner.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	padding: 15%;
 	color: white;
 }
+
+.title-box:hover{
+	background-image: url("../../../Graphics/Graphics_color/ARTcolony_bannerblurred.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 15%;
+	color: white;
+}
+
 .button-container{
-	padding: 5%;
-	
+	position: absolute;
+	left: 0;
+	top: 70%;
+	width: 100%;
+	text-align: center;
+	word-spacing: 50px;
+}
+
+input[type=submit]{
+	position:center;
+	border: none;
+	display: inline;
+	background-color: inherit;
+	font-size: 40px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+
+}
+
+input[type=submit]:hover{
+	color: 	#E63C49;
 }
