@@ -1,0 +1,110 @@
+#main-container{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+	background-color: black;
+}
+
+@font-face {
+	font-family: AlegreyaSansBold;
+	src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Bold.otf");
+}
+
+@font-face {
+	font-family: AlegreyaSansThin;
+	src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf");
+}
+
+.title-box{
+	background-image: url("../../../../Graphics/Graphics_color/ARTcolony_banner.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	padding: 10%;
+	color: white;
+}
+
+.title-box:hover{
+	background-image: url("../../../../Graphics/Graphics_color/ARTcolony_bannerblurred.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 10%;
+	color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 70px;
+  text-decoration: none;
+  font-size: 50px;
+  font-family:AlegreyaSansThin;
+}
+
+a{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 40px;
+	font-family:LemonTuesday;
+	color:white;
+}
+
+.musicSidebar {
+    height: 100%;
+    width: 30px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+        
+.musicSidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.chatSidebar {
+    height: 100%;
+    width: 30px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+        
+.chatSidebar .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    margin-right: 50px;
+}
+
+
