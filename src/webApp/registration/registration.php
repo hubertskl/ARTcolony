@@ -127,20 +127,16 @@
 <head>
 	<meta charset="utf-8">
 	<title>ARTcolony</title>
-	<link rel="stylesheet" type = "text/css" href="css/fontello.css">
+	<link rel="stylesheet" type = "text/css" href="registrationStyle/registrationStyle.css">
 
 </head>
 <body>
+		<div id="page-title"><a  href="../index.html">Home</a><br><br></div>
 	<div id="container">
-		<div id="page-title"><a  href="../index.html">Home</a><br><br>
-			<a href="../login/login.php">Login</a>
-		</div>
-		
-			<div id="logo"><h1>Register</h1></div>
+
 				<div id="panel"> 
 					<form method="POST">
-					<p><label for="username">Login:</label></p>
-					<input type="text" id="username" name="username">
+					<input type="text" id="username" name="username" placeholder="USERNAME"></br></br>
 					<?php
 						if(isset($_SESSION['e_username']))
 						{
@@ -148,12 +144,9 @@
 							unset($_SESSION['e_username']);
 						}
 					?>
-					<p>Name: </p>
-					<input type="text" id="name1" name="name">
-					<p>Family name: </p>
-					<input type="text" id="family_name" name="family name">
-					<p>e-mail: </p>
-					<input type="text" id="email" name="email">
+					<input type="text" id="name1" name="name" placeholder="NAME"></br></br>
+					<input type="text" id="family_name" name="family name" placeholder="FAMILY NAME"></br></br>
+					<input type="text" id="email" name="email" placeholder="E-MAIL"></br></br>
 					<?php
 						if(isset($_SESSION['e_email']))
 						{
@@ -161,8 +154,7 @@
 							unset($_SESSION['e_email']);
 						}
 					?>
-					<p><label for="password">Password:</label></p>
-					<input type="password" id="password1" name="password1">
+					<input type="password" id="password1" name="password1" placeholder="PASSWORD"></br></br>
 					<?php
 						if(isset($_SESSION['e_password1']))
 						{
@@ -170,8 +162,7 @@
 							unset($_SESSION['e_password1']);
 						}
 					?>
-					<p><label for="password">Repeat password:</label></p>
-					<input type="password" id="password2" name="password2"></br></br>
+					<input type="password" id="password2" name="password2" placeholder="REPEAT PASSWORD"></br></br>
 					<?php
 						if(isset($_SESSION['e_password2']))
 						{
@@ -180,8 +171,8 @@
 						}
 					?>
 					<label>
-					<input type="checkbox" name="conditions" /> I accept the conditions
-					</label>
+					<input type="checkbox" name="conditions" placeholder="I accept the conditions"/> I accept the conditions</label>
+					<div class="login_button"><input type="submit" value=""></div>
 					<?php
 						if(isset($_SESSION['e_conditions']))
 						{
@@ -189,7 +180,8 @@
 							unset($_SESSION['e_conditions']);
 						}
 					?>
-					<div class="login-button"><p><input type="submit" value="Register"></p></div>
+					
+								<a href="../login/login.php">Already have an account? Sign in!</a>
 					</form>
 				</div>
 	
