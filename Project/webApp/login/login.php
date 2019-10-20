@@ -16,20 +16,15 @@ if (isset($_SESSION['logged_id']))
 </head>
 <body>
 	<div id="login-container">
-		<div id="web-title" ><a href="../index.html">Home</a></div>
-			<div id="logo"><h1>Login</h1></div>
+		<div id="web-title" ><a href="../index.html"><p>ART</p>colony</a></div>
+
 				<div id="panel"> 
 					<form action="loginScript.php" method="post">
-						<p><label for="username">Login:</label></p>
-						<input type="text" id="username" name="username">
-						<p><label for="password">Password:</label></p>
-						<input type="password" id="password" name="password">
-						<div class="przycisk_logowania"><p><input type="submit" value="Login"></p></div>
+						<input type="text" id="username" name="username" placeholder="USERNAME"></br></br>
+						<input type="password" id="password" name="password" placeholder="PASSWORD"></br></br>
+						<div class="login_button"><input type="submit" value=""></div>
 					</form>
-					<div id="rej">
-						<h2>Don't you have an account yet? JOIN NOW</h2>
-					</div>
-					<a href="../registration/registration.php"><input type="submit" value="Reg"/></a><br/>
+					<a href="../registration/registration.php"><input type="submit"value=""/><h2> Don't you have an account yet? JOIN NOW!</h2></a><br/>
 					
 				</div>
 			
