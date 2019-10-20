@@ -1,0 +1,136 @@
+#panel{
+	margin-right:20%;
+	margin-left:auto;
+	float:right;
+	margin-top: 5%;
+	height:50%;
+}
+
+@font-face {
+	font-family: AlegreyaSansThin;
+	src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf");
+}
+@font-face {
+	font-family: LemonTuesday;
+	src: url("../../../../Graphics/Fonts/Lemon Tuesday.otf");
+}
+
+body{
+	background-image: url("../../../../Graphics/Graphics_color/ARTcolony_background_login.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+label{
+	font-size: 30px;
+	font-family:AlegreyaSansThin;
+	color:white;
+}
+
+h3{
+	font-size: 25px;
+	font-family:LemonTuesday;
+	color:white;	
+}
+
+h2{
+	font-size: 20px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	display: inline-block;
+}
+h2:hover{
+	font-size: 20px;
+	font-family:AlegreyaSansThin;
+	color:#E63C49;
+	display: inline-block;
+}
+
+p{
+	font-size: 50px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	display: inline-block;
+}
+
+a{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 40px;
+	font-family:LemonTuesday;
+	color:white;
+}
+
+input[type=submit]{
+	position:center;
+	border: none;
+	display: inline;
+	background-color: inherit;
+	font-size: 40px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+
+input[placeholder]{
+	border: none;
+	font-size: 35px;
+	font-family:AlegreyaSansThin;
+	color:white;
+
+}
+
+.error{
+	font-size:20px;
+	font-family:AlegreyaSansThin;
+	color:white;
+}
+
+input[type=text] {
+	border: none;
+	font-size:35px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+}
+input[type=text]:hover {
+	border: none;
+	font-size:35px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	background-color: transparent;
+	border-bottom: 1px solid #E63C49;
+}
+
+input[type=password] {
+	font-size: 35px;
+	font-family:AlegreyaSansThin;
+	border: none;
+	color:white;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+
+}
+
+input[type=password]:hover {
+	font-size: 35px;
+	font-family:AlegreyaSansThin;
+	border: none;
+	color:white;
+	background-color: transparent;
+	border-bottom: 1px solid #E63C49;
+
+}
+
+div.login_button input {
+	width: 15%;
+	float:right;
+	background-image: url("../../../../Graphics/Graphics_color/button.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	cursor:pointer;
+    border: none;
+}
