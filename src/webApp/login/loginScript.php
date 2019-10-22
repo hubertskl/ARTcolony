@@ -44,7 +44,7 @@ if (!isset($_SESSION['logged_id'])) {
 			
 			unset($_SESSION['bad_attempt']);
 			
-			header('Location: ../user/userPage.php');
+			header('Location: ../mainPage/mainPage.php');
 		} else {
 			$_SESSION['bad_attempt'] = true;
 			header('Location: login.php');
