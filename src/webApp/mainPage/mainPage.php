@@ -32,7 +32,7 @@ if (!isset($_SESSION['logged_id']))
 			  
 			</div>
 		
-			<div class="title-box"></div>
+				<div class="title-box"></div>
 				<div class="menu">
 					<ul>
 					  <li><a href="#profile">Your Profile</a></li>
@@ -41,7 +41,18 @@ if (!isset($_SESSION['logged_id']))
 					  <li><a href="#shop">Shop</a></li>
 					</ul>
 				</div>
+				<div style="clear:both"></div>
 				
+				<div class="component">
+					<div id="last-songs">
+						<h2>Last uploaded songs:</h2>
+					</div>
+				</div>
+				<div class="component">
+					<div id="last-reviews">
+						<h2>Last reviews:</h2>
+					</div>
+				</div>
 				
 		</div>
 		
