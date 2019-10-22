@@ -12,6 +12,7 @@ body{
 	background-image: url("../../../../Graphics/Graphics_color/ARTcolony_background2.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
+	background-color: black;
 }
 
 #container {

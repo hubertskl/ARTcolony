@@ -22,23 +22,19 @@ if (isset($_SESSION['logged_id']))
 					<form action="loginScript.php" method="post">
 						<input type="text" id="username" name="username" placeholder="USERNAME"></br></br>
 						<input type="password" id="password" name="password" placeholder="PASSWORD"></br></br>
+	
+					<?php
+						if (isset($_SESSION['bad_attempt'])) 
+						{
+							echo '<p>Bad login or password!</p>';
+							unset($_SESSION['bad_attempt']);
+						}
+					?>
 						<div class="login_button"><input type="submit" value=""></div>
-					</form>
-					<a href="../registration/registration.php"><input type="submit"value=""/><h2> Don't you have an account yet? JOIN NOW!</h2></a><br/>
-					
+					</form>	
+						<a href="../registration/registration.php"><input type="submit"value=""/><h2> Don't you have an account yet? JOIN NOW!</h2></a><br/>
 				</div>
-			
-	
-	
 	</div>
-<?php
-	if (isset($_SESSION['bad_attempt'])) 
-	{
-		echo '<p>Bad login or password!</p>';
-		unset($_SESSION['bad_attempt']);
-	}
-?>
-
 </body>
 
 </html>

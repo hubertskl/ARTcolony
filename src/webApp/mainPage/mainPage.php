@@ -35,7 +35,7 @@ if (!isset($_SESSION['logged_id']))
 				<div class="title-box"></div>
 				<div class="menu">
 					<ul>
-					  <li><a href="#profile">Your Profile</a></li>
+					  <li><a href="../user/userPage.php">Your Profile</a></li>
 					  <li><a href="#player">Music Player</a></li>
 					  <li><a href="#reviews">Reviews</a></li>
 					  <li><a href="#shop">Shop</a></li>
