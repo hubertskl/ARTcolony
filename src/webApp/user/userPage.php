@@ -16,18 +16,20 @@ if (!isset($_SESSION['logged_id']))
 <head>
 	<meta charset="utf-8">
 	<title>ARTcolony</title>
+	<link rel="stylesheet" type = "text/css" href="userStyle/userStyle.css">
 </head>
 <body>
-	<div id="userPage-container">HOME 
-		<div class="name-text">
-		<?php
-			echo "<p> Hello ".$_SESSION['name'].' '.$_SESSION['family_name'].'!</p>'; 
-		?>
-		</div>
+				<div class="title-box"></div>
+					<div class="menu">
+					<ul>
+					  <li><a href="../mainPage/mainPage.php">Home</a></li>
+					  <li><a href="#player">Music Player</a></li>
+					  <li><a href="#reviews">Reviews</a></li>
+					  <li><a href="#shop">Shop</a></li>
+					  <li><a href="../user/logout.php">Logout</a></li>
+					</ul>
+				</div>
+		
 
-	</div>
-	<div>
-		<a href="../user/logout.php">Logout</a>
-	</div>
 </body>
 </html>
