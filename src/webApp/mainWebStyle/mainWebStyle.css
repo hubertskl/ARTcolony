@@ -1,6 +1,10 @@
 #main-container{
 	margin-left: auto;
 	margin-right: auto;
+	background-color: black !important;
+}
+body{
+	background-color: black !important;
 }
 
 body {
@@ -40,6 +44,7 @@ body {
 
 .button-container{
 	position: absolute;
+
 	left: 0;
 	top: 70%;
 	width: 100%;
@@ -63,4 +68,16 @@ input[type=submit]{
 
 input[type=submit]:hover{
 	color: 	#E63C49;
+}
+
+/*fix a color in bootstrap*/
+a:hover {
+	color: black !important;
+	text-decoration: underline;
+}
+/*for fix bootstrap media*/
+@media (min-width: 1200px) {
+	.container {
+		max-width: 100% !important;
+	}
 }
