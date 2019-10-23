@@ -3,9 +3,12 @@
 	margin-right: auto;
 	background-color: black !important;
 }
-
 body{
 	background-color: black !important;
+}
+
+body {
+	background-color: black;
 }
 
 .box{
@@ -41,6 +44,8 @@ body{
 
 .button-container{
 	position: absolute;
+
+	left: 0;
 	top: 70%;
 	width: 100%;
 	text-align: center;

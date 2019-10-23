@@ -3,6 +3,13 @@
 	if(isset($_POST['email']))
 	{
 		$allright=true;
+
+	SESSION_START();
+	
+	if(isset($_POST['email']))
+	{
+		$allright=true;
+		
 			if(isset($_POST['name']))
 			{
 				$name=$_POST['name'];
@@ -12,11 +19,13 @@
 				$surname=$_POST['family_name'];
 			}
 		$username=$_POST['username'];
+
 		if((strlen($username)<3)||(strlen($username)>25))
 		{
 			$allright=false;
 			$_SESSION['e_username']="Login must have more chars";
 		}
+
 		if(ctype_alnum($username)==false)
 		{
 			$allright=false;
@@ -31,8 +40,15 @@
 			$allright=false;
 			$_SESSION['e_email']="Invalid email";
 		}
+
 		$password1=$_POST['password1'];
 		$password2=$_POST['password2'];
+
+		
+		$password1=$_POST['password1'];
+		$password2=$_POST['password2'];
+		
+
 		if((strlen($password1)<3)||(strlen($password1)>25))
 		{
 			$allright=false;
@@ -43,7 +59,12 @@
 			$allright=false;
 			$_SESSION['e_password2']="Passwords do not match";
 		}
+
 		$passwordhash = password_hash($password1, PASSWORD_DEFAULT);
+
+		$passwordhash = password_hash($password1, PASSWORD_DEFAULT); 
+		
+		
 		if(!isset($_POST['conditions']))
 		{
 			$allright=false;
@@ -55,6 +76,17 @@
 				$qu1->bindValue(':email1', $email, PDO::PARAM_STR);
 				$qu1->execute();
 				$mailNumber=$qu1->rowCount();
+
+		
+			try{
+				require_once '../../connection/connectWithDB.php';
+				
+				$qu1=$db->prepare('SELECT id_user FROM users WHERE email=:email1');
+				$qu1->bindValue(':email1', $email, PDO::PARAM_STR);
+				$qu1->execute();
+		
+				$mailNumber=$qu1->rowCount();
+				
 				if($mailNumber>0)
 				{
 					$allright=false;
@@ -74,23 +106,47 @@
 				if($allright==true)
 				{
 					$result5=$db->prepare("INSERT INTO users (login, password, name, family_name, email) VALUES (:username,:password,:name,:family_name,:email)");
+					
+					$result5=$db->prepare("INSERT INTO users (login, password, name, family_name, email) VALUES (:username,:password,:name,:family_name,:email)"); 
+					
 					$result5->bindParam(':username',$username);
 					$result5->bindParam(':password',$passwordhash);
 					$result5->bindParam(':name',$name);
 					$result5->bindParam(':family_name',$surname);
 					$result5->bindParam(':email',$email);
+
 					$result5->execute();
 						$_SESSION['successful_registration']=true;
 						header('Location: afterRegistration.php');
 				}
+					
+					
+					
+					$result5->execute();
+					
+					
+						$_SESSION['successful_registration']=true;
+						
+						header('Location: afterRegistration.php');
+				
+				}
+			
 		}
 		catch(Exception $e)
 		{
 			echo '<span style="color:red;">Server ERROR!</span>';
 			echo '<br />Info: '.$e;
 		}
+
 	}
 ?>
+
+			
+		
+	}
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
