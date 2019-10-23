@@ -131,7 +131,7 @@
 
 </head>
 <body>
-		<div id="page-title"><a  href="../index.html">Home</a><br><br></div>
+		<div id="page-title"><a  href="../index.html" class = "home">Home</a><br><br></div>
 	<div id="container">
 
 				<div id="panel"> 
@@ -171,7 +171,7 @@
 						}
 					?>
 					<label>
-					<input type="checkbox" name="conditions" placeholder="I accept the conditions"/> I accept the conditions</label>
+					<input type="checkbox" name="conditions" placeholder="I accept the conditions"/> I accept the <a href="Terms.pdf" class = "conditions">conditions</a></label>
 					<div class="login_button"><input type="submit" value=""></div>
 					<?php
 						if(isset($_SESSION['e_conditions']))
@@ -181,12 +181,13 @@
 						}
 					?>
 					
-								<a href="../login/login.php">Already have an account? Sign in!</a>
+								
 					</form>
 				</div>
 	
 	
 	</div>
+	<div id = "user_sign_in"><a href="../login/login.php" class = "sign_in">Already have an account? Sign in!</a></div>
 
 
 </body>

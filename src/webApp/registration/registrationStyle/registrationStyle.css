@@ -3,6 +3,11 @@
 	font-family: AlegreyaSansThin;
 	src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf");
 }
+
+@font-face {
+	font-family: AlegreyaSansBold;
+	src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Bold.otf");
+}
 @font-face {
 	font-family: LemonTuesday;
 	src: url("../../../../Graphics/Fonts/Lemon Tuesday.otf");
@@ -23,6 +28,14 @@ body{
 	left:30%;
 }
 
+#user_sign_in {
+	top:80%;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	left:30%;
+}
+
 label{
 	font-size: 30px;
 	font-family:AlegreyaSansThin;
@@ -36,7 +49,7 @@ p{
 	display: inline-block;
 }
 
-a{
+a.home{
 	text-decoration: none;
 	display: inline-block;
 	font-size: 40px;
@@ -44,14 +57,43 @@ a{
 	color:white;
 }
 
+a.conditions{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 30px;
+	font-family:AlegreyaSansBold;
+	color:white;
+}
 
+a.conditions:hover{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 30px;
+	font-family:AlegreyaSansBold;
+	color:#E63C49;
+}
+
+a.sign_in{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 26px;
+	font-family:AlegreyaSansThin;
+	color:white;
+}
+
+a.sign_in:hover{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 26px;
+	font-family:AlegreyaSansThin;
+	color:#E63C49;
+}
 
 input[placeholder]{
 	border: none;
 	font-size: 35px;
 	font-family:AlegreyaSansThin;
 	color:white;
-
 }
 
 input[type=text] {
@@ -78,7 +120,6 @@ input[type=password] {
 	color:white;
 	background-color: transparent;
 	border-bottom: 1px solid white;
-
 }
 
 input[type=password]:hover {
@@ -88,17 +129,16 @@ input[type=password]:hover {
 	color:white;
 	background-color: transparent;
 	border-bottom: 1px solid #E63C49;
-
 }
 
 div.login_button input {
 	background-color: transparent;
 	width: 70px;
+	float: right;
 	height:70px;
 	background-image: url("../../../../Graphics/Graphics_color/button.png");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	cursor:pointer;
-    border: none;
-		
+    border: none;	
 }
