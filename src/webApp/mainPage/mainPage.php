@@ -23,15 +23,10 @@ if (!isset($_SESSION['logged_id']))
 	
 	<div id="main-container">
 		<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 box">
-		
 			<div id="musicSidebar" class="musicSidebar" onmouseover="toggleMusicSidebar()" onmouseout="toggleMusicSidebar()">
-			  
 			</div>
-			
 			<div id="chatSidebar" class="chatSidebar" onmouseover="toggleChatSidebar()" onmouseout="toggleChatSidebar()">
-			  
 			</div>
-		
 				<div class="title-box"></div>
 				<div class="menu">
 					<ul>
@@ -39,6 +34,7 @@ if (!isset($_SESSION['logged_id']))
 					  <li><a href="#player">Music Player</a></li>
 					  <li><a href="#reviews">Reviews</a></li>
 					  <li><a href="#shop">Shop</a></li>
+                        <li><a href="../user/logout.php">Logout</a></li>
 					</ul>
 				</div>
 				<div style="clear:both"></div>
@@ -55,16 +51,6 @@ if (!isset($_SESSION['logged_id']))
 				</div>
 				
 		</div>
-		
-		
-		
-			
-			
-			
-			
 	</div>
-
-
-	
 </body>
 </html>
