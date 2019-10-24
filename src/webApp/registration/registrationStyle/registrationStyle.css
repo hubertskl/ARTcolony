@@ -29,11 +29,16 @@ body{
 }
 
 #user_sign_in {
-	top:80%;
+	top:85%;
 	position: absolute;
 	align-items: center;
 	justify-content: center;
 	left:30%;
+}
+
+#web-title{
+	margin-left:auto;
+	margin-top: -2%;	
 }
 
 label{
@@ -43,10 +48,18 @@ label{
 }
 
 p{
-	font-size: 50px;
+	font-size: 35px;
 	font-family:AlegreyaSansThin;
 	color:white;
 	display: inline-block;
+}
+
+.error{
+	font-size: 15px;
+	font-family:AlegreyaSansThin;
+	color:white;
+
+
 }
 
 a.home{
