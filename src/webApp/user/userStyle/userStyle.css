@@ -1,0 +1,175 @@
+@font-face {
+	font-family: AlegreyaSansThin;
+	src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf");
+}
+@font-face {
+	font-family: LemonTuesday;
+	src: url("../../../../Graphics/Fonts/Lemon Tuesday.otf");
+}
+
+body{
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-color: black;
+}
+
+p{
+	font-size: 25px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	display: inline-block;
+
+}
+
+.musicSidebar {
+    height: 100%;
+    width: 30px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+        
+.musicSidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.chatSidebar {
+    height: 100%;
+    width: 30px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+        
+.chatSidebar .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    margin-right: 50px;
+}
+
+.title-box{
+	background-image: url("../../../../Graphics/Graphics_color/ARTcolony_bannersmall.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	padding: 5%;
+	color: white;
+}
+
+.title-box:hover{
+	background-image: url("../../../../Graphics/Graphics_color/ARTcolony_bannersmallblurred.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 5%;
+	color: white;
+}
+
+.upload_form{
+	color: white;
+}
+
+.audio-player-cont{
+	width: 300px;
+	height: 400px;
+	background: rgb(26, 26, 26);
+	color: white;
+	font-family: verdana;
+	font-size: 12px;
+	margin-top: 4%;
+	margin-left: 4%;
+	margin-right: 4%;
+	margin-bottom: 4%;
+}
+
+.logo{
+	float:left;
+}
+
+.player{
+	
+	margin: 7px;
+}
+
+.song-title{
+	width: 300px;
+	padding: 5px 0px 5px 0px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.song-slider{
+	width: 280px;
+}
+
+.current-time{
+	float:left;
+	font-size: 10px;
+}
+
+.duration{
+	float:right;
+	font-size: 10px;
+}
+
+.controllers{
+	clear: both;
+	display: table;
+}
+
+.controllers *{
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+.volume-slider{
+	width: 90px;
+	margin-left:5px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 70px;
+  text-decoration: none;
+  font-size: 50px;
+  font-family:AlegreyaSansThin;
+}
+
+a{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 40px;
+	font-family:LemonTuesday;
+	color:white;
+}

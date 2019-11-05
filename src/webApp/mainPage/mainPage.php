@@ -19,7 +19,7 @@ if (!isset($_SESSION['logged_id']))
 	<link rel="stylesheet" type = "text/css" href="mainPageStyle/mainPageStyle.css">
 </head>
 <body>
-	<script src="mainPageStyle/toggleSidebar.js"></script>
+	<script src="../mainWebStyle/toggleSidebar.js"></script>
 	
 	<div id="main-container">
 		<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 box">
