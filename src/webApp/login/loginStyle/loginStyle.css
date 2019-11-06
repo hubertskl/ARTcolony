@@ -19,7 +19,6 @@ body{
 	background-image: url("../../../../Graphics/Graphics_color/ARTcolony_background_login.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	background-color: black;
 }
 
 label{
@@ -48,11 +47,10 @@ h2:hover{
 }
 
 p{
-	font-size: 25px;
+	font-size: 50px;
 	font-family:AlegreyaSansThin;
 	color:white;
 	display: inline-block;
-
 }
 
 a{
@@ -82,6 +80,12 @@ input[placeholder]{
 	font-family:AlegreyaSansThin;
 	color:white;
 
+}
+
+.error{
+	font-size:20px;
+	font-family:AlegreyaSansThin;
+	color:white;
 }
 
 input[type=text] {
