@@ -63,6 +63,10 @@ a{
 	color:white;
 }
 
+.upload_form{
+	color: white;
+}
+
 .musicSidebar {
     height: 100%;
     width: 30px;
@@ -123,4 +127,62 @@ h2{
 	
 }
 
+.audio-player-cont{
+	width: 300px;
+	height: 400px;
+	background: rgb(26, 26, 26);
+	color: white;
+	font-family: verdana;
+	font-size: 12px;
+	margin-top: 4%;
+	margin-left: 4%;
+	margin-right: 4%;
+	margin-bottom: 4%;
+}
+
+.logo{
+	float:left;
+}
+
+.player{
+	
+	margin: 7px;
+}
+
+.song-title{
+	width: 300px;
+	padding: 5px 0px 5px 0px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.song-slider{
+	width: 280px;
+}
+
+.current-time{
+	float:left;
+	font-size: 10px;
+}
+
+.duration{
+	float:right;
+	font-size: 10px;
+}
+
+.controllers{
+	clear: both;
+	display: table;
+}
+
+.controllers *{
+	vertical-align: middle;
+	margin-right: 2px;
+}
+
+.volume-slider{
+	width: 90px;
+	margin-left:5px;
+}
 
