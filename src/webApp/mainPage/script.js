@@ -1,5 +1,6 @@
 var default_content="";
 
+
 $(document).ready(function(){
 	
 	checkURL();
@@ -32,6 +33,9 @@ function checkURL(hash)
 		
 		if(hash=="")
 		$('#pageContent').html(default_content);
+	
+		else if(hash=="#page4")
+		loadPage_4(hash);
 		
 		else
 		loadPage(hash);
@@ -60,5 +64,27 @@ function loadPage(url)
 		}
 		
 	});
+}
 
+function loadPage_4(url)
+{
+	url=url.replace('#page','');
+	
+	$('#loading').css('visibility','visible');
+	
+	$.ajax({
+		type: "POST",
+		url: "../user/page_4.php",
+		data: 'page='+url,
+		dataType: "html",
+		success: function(msg){
+			
+			if(parseInt(msg)!=0)
+			{
+				$('#pageContent').html(msg);
+				$('#loading').css('visibility','hidden');
+			}
+		}
+		
+	});
 }
