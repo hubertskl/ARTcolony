@@ -186,3 +186,152 @@ h2{
 	margin-left:5px;
 }
 
+
+/*Reviews style*/
+
+#songs{
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto;
+	width: 40%;
+}
+
+#recent{
+	margin-top:5%;
+	float:right;
+	margin-left: auto%;
+	margin-right: 5%;
+	width: 40%;
+}
+
+h3{
+	font-size: 25px;
+	font-family:AlegreyaSansThin;
+	color:#E63C49;
+	display: inline-block;
+}
+
+p{
+	font-size: 25px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+a.songs{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 23px;
+	font-family:LemonTuesday;
+	color:white;
+}
+
+a.songs:hover{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 23px;
+	font-family:LemonTuesday;
+	color:#E63C49;
+}
+
+a{
+	text-decoration: none;
+	display: inline-block;
+	font-size: 40px;
+	font-family:LemonTuesday;
+	color:white;
+}
+
+button[type=submit]{
+
+	border: none;
+	display: inline;
+	background-color: inherit;
+	font-size: 30px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+button[type=submit]:hover{
+
+	border: none;
+	display: inline;
+	background-color: inherit;
+	font-size: 30px;
+	font-family:AlegreyaSansThin;
+	color:#E63C49;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+
+input[placeholder]{
+	border: none;
+	font-size: 35px;
+	font-family:AlegreyaSansThin;
+	color:white;
+
+}
+
+input[type=text] {
+	border: none;
+	font-size:35px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+}
+input[type=text]:hover {
+	border: none;
+	font-size:35px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	background-color: transparent;
+	border-bottom: 1px solid #E63C49;
+}
+
+textarea[type=text] {
+	border: none;
+	font-size:35px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+}
+textarea[type=text]:hover {
+	border: none;
+	font-size:35px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	background-color: transparent;
+	border-bottom: 1px solid #E63C49;
+}
+
+div.add_button input {
+	position:center;
+	border: none;
+	display: inline;
+	background-color: inherit;
+	font-size: 40px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+div.add_button input:hover {
+	position:center;
+	border: none;
+	display: inline;
+	background-color: inherit;
+	font-size: 40px;
+	font-family:AlegreyaSansThin;
+	color:#E63C49;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+/*Reviews style - end*/

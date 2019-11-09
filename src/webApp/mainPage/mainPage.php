@@ -60,7 +60,7 @@ if (!isset($_SESSION['logged_id']))
 						  <li><a href="#page1">Home</a></li>
 						  <li><a href="#page2">Your Profile</a></li>
 						  <li><a href="#player">Music Player</a></li>
-						  <li><a href="#reviews">Reviews</a></li>
+						  <li><a href="#page4">Reviews</a></li>
 						  <li><a href="../user/shop/main-shop-page.php">Shop</a></li>
 						  <li><a href="../user/logout.php">Logout</a></li>
 						</ul>
@@ -186,6 +186,7 @@ if (!isset($_SESSION['logged_id']))
 						loadSong();
 						song.pause();
 					}
+
 					
 					</script>
 		</div>
