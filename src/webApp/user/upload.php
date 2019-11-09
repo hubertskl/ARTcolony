@@ -89,13 +89,13 @@ if (!isset($_SESSION['logged_id']))
 				catch(Exception $e) {
 					echo 'Server error!';
 				}
-				header('Location: full_version.php');
+				header('Location: ../mainPage/mainPage.php#page2');
 			}
 		else
 			{
 				$_SESSION['e_upload'] = 'Something went wrong, try again later!';
-				header('Location: userPage.php');
+				header('Location: ../mainPage/mainPage.php#page2');
 			}
 	}
-	header('Location: userPage.php');
+	header('Location: ../mainPage/mainPage.php#page2');
 ?>
