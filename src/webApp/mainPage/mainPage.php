@@ -53,6 +53,11 @@ if (!isset($_SESSION['logged_id']))
 		
 		</div>
 		<div id="chatSidebar" class="chatSidebar" onmouseover="toggleChatSidebar()" onmouseout="toggleChatSidebar()">
+			    <div class="table-responsive">
+					<h2 align="center">Online Users</h2>
+					<div id="user_details"></div>
+				</div>
+		
 			</div>
 				<div class="title-box"></div>
 					<div class="menu">
@@ -65,6 +70,7 @@ if (!isset($_SESSION['logged_id']))
 						  <li><a href="../user/logout.php">Logout</a></li>
 						</ul>
 					</div>
+					
 				
 				<!-- THIS IS THE COMPONENT TO BE REPLACED EACH PAGE -->
 				<div id="pageContent">
@@ -187,6 +193,33 @@ if (!isset($_SESSION['logged_id']))
 						song.pause();
 					}
 
+					fetch_user();
+					
+					setInterval(function(){
+						update_last_activity();
+					}, 5000);
+					
+					function fetch_user() {
+					  $.ajax({
+					   url:"../chat/fetch_user.php",
+					   method:"POST",
+					   success:function(data){
+						$('#user_details').html(data);
+					   }
+					  })
+					 }
+					 
+					 function update_last_activity()
+					 {
+					  $.ajax({
+					   url:"../chat/update_last_activity.php",
+					   success:function()
+					   {
+
+					   }
+					  })
+					 }
+					
 					
 					</script>
 		</div>
