@@ -35,6 +35,11 @@ if (!isset($_SESSION['logged_id'])) {
 			//is admin
 			$_SESSION['is_admin']=$user['is_admin'];
 			
+			$sub_query = "INSERT INTO login_details (id_user) VALUES ('".$user['id_user']."')";
+			$statement = $db->prepare($sub_query);
+			$statement->execute();
+			$_SESSION['login_details_id'] = $db->lastInsertId();
+			
 			unset($_SESSION['bad_attempt']);
 			
 			header('Location: ../mainPage/mainPage.php');
