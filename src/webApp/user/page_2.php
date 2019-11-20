@@ -1,5 +1,7 @@
+				
+				
 				<div class="upload_form">
-					<form action="upload.php" method="post" enctype="multipart/form-data">
+					<form action="../user/upload.php" method="post" enctype="multipart/form-data">
 						<h3>Add song:</h3>
 							Type title of your song:
 							<input type="text" name="song_title" id="song_title"><br>
@@ -9,6 +11,7 @@
 					
 					<span class = "php_uplad_error">
 						<?php
+							SESSION_START();
 							if (isset($_SESSION['e_upload'])) {
 								echo $_SESSION['e_upload'];
 								unset($_SESSION['e_upload']);
@@ -17,6 +20,7 @@
 					</span>
 					<span class = "php_upload_success">
 					<?php
+						//SESSION_START();
 						if (isset($_SESSION['s_upload'])) {
 								if (isset($_SESSION['e_upload'])) {
 								unset($_SESSION['e_upload']);
