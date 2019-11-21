@@ -127,6 +127,40 @@ if (isset($_POST['add'])) {
 			$_SESSION['e_addnewsongs']="Choose some songs from the list";
 			header('Location: /src/webApp/mainPage/mainPage.php#page5');
 		}
-	}	
+	}
+
+if(isset($_GET['playlist'])) {
+	$id_playlist = $_GET['playlist'];
+
+	$music = $db->prepare("SELECT id_song FROM playlist_positions WHERE id_playlist=:id");
+	$music->bindParam(":id", $_GET['playlist']);
+	$music->execute();
+								
+	$id_songs = array();
+	while ($row = $music->fetch(PDO::FETCH_ASSOC)){
+		//echo $row['id_song'];
+		array_push($id_songs, $row['id_song']);
+		}
+								
+	//echo json_encode($id_songs);
+				
+	$title_array = array();
+	$music_array = array();
+	foreach($id_songs as $value) {
+		$song = $db->prepare("SELECT * FROM media WHERE id_media=:id");
+		$song->bindParam(":id", $value);
+		$song->execute();
+		while ($row = $song->fetch(PDO::FETCH_ASSOC)){
+			array_push($music_array, $row['file_name']);
+			array_push($title_array, $row['media_title']);
+			}
+		}
+	$_SESSION['playlist_songs'] = $music_array;
+	$_SESSION['playlist_titles'] = $title_array;
+	
+	//echo json_encode($_SESSION['playlist_songs']);
+	//echo json_encode($_SESSION['playlist_titles']);
+	header('Location: /src/webApp/mainPage/mainPage.php');
+}	
 
 ?>
