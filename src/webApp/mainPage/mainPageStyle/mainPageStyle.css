@@ -17,6 +17,11 @@ body {
 	src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf");
 }
 
+@font-face {
+	font-family: Lemon;
+	src: url("../../../../Graphics/Fonts/Lemon Tuesday.otf");
+}
+
 .title-box{
 	background-image: url("../../../../Graphics/Graphics_color/ARTcolony_banner.png");
 	background-repeat: no-repeat;
@@ -113,7 +118,7 @@ a{
 
 h2{
 	padding: 10px;
-	font-size: 20px;
+	font-size: 25px;
 	font-family:AlegreyaSansThin;
 	color:white;
 	display: inline-block;
@@ -203,12 +208,21 @@ h2{
 	margin-left: auto%;
 	margin-right: 5%;
 	width: 40%;
+	background-color:#1a1a1a;
 }
 
 h3{
 	font-size: 25px;
 	font-family:AlegreyaSansThin;
 	color:#E63C49;
+	display: inline-block;
+}
+
+h1{
+	padding: 10px;
+	font-size: 20px;
+	font-family:Lemon;
+	color:white;
 	display: inline-block;
 }
 
@@ -243,24 +257,24 @@ a{
 	color:white;
 }
 
-button[type=submit]{
+input[type=submit]{
 
 	border: none;
 	display: inline;
 	background-color: inherit;
-	font-size: 30px;
+	font-size: 23px;
 	font-family:AlegreyaSansThin;
 	color:white;
 	cursor: pointer;
 	display: inline-block;
 	text-decoration: none;
 }
-button[type=submit]:hover{
+input[type=submit]:hover{
 
 	border: none;
 	display: inline;
 	background-color: inherit;
-	font-size: 30px;
+	font-size: 23px;
 	font-family:AlegreyaSansThin;
 	color:#E63C49;
 	cursor: pointer;
