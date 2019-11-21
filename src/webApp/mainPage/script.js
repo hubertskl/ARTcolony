@@ -37,8 +37,14 @@ function checkURL(hash)
 		else if(hash=="#page2")
 		loadPage_2(hash);
 	
+		else if(hash=="#page3")
+		loadPage_3(hash);
+	
 		else if(hash=="#page4")
 		loadPage_4(hash);
+	
+		else if(hash=="#page5")
+		loadPage_5(hash);
 		
 		else
 		loadPage(hash);
@@ -92,6 +98,29 @@ function loadPage_2(url)
 	});
 }
 
+function loadPage_3(url)
+{
+	url=url.replace('#page','');
+	
+	$('#loading').css('visibility','visible');
+	
+	$.ajax({
+		type: "POST",
+		url: "../user/page_3.php",
+		data: 'page='+url,
+		dataType: "html",
+		success: function(msg){
+			
+			if(parseInt(msg)!=0)
+			{
+				$('#pageContent').html(msg);
+				$('#loading').css('visibility','hidden');
+			}
+		}
+		
+	});
+}
+
 function loadPage_4(url)
 {
 	url=url.replace('#page','');
@@ -101,6 +130,29 @@ function loadPage_4(url)
 	$.ajax({
 		type: "POST",
 		url: "../user/page_4.php",
+		data: 'page='+url,
+		dataType: "html",
+		success: function(msg){
+			
+			if(parseInt(msg)!=0)
+			{
+				$('#pageContent').html(msg);
+				$('#loading').css('visibility','hidden');
+			}
+		}
+		
+	});
+}
+
+function loadPage_5(url)
+{
+	url=url.replace('#page','');
+	
+	$('#loading').css('visibility','visible');
+	
+	$.ajax({
+		type: "POST",
+		url: "../user/page_5.php",
 		data: 'page='+url,
 		dataType: "html",
 		success: function(msg){

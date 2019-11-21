@@ -349,3 +349,110 @@ div.add_button input:hover {
 	text-decoration: none;
 }
 /*Reviews style - end*/
+
+/*Reviews style - end*/
+
+/*Playlists*/
+
+#add_playlist {
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto%;
+	border: 1px solid white;
+	width:40%;
+}
+
+#all_songs {
+	overflow-y: scroll;
+	height: 200px;
+	padding: 10px;
+	font-size: 20px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	width: 100%;
+}
+
+#all_playlists {
+	margin-top:5%;
+	float:right;
+	margin-left: auto%;
+	margin-right: 5%;
+	border: 1px solid white;
+	width: 40%;
+}
+
+#all_playlists_table {
+	font-family:AlegreyaSansThin;
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 2%;
+}
+
+#all_playlists_table td, #all_playlists_table th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#all_playlists_table th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: rgb(26, 26, 26);
+	color: white;
+}
+
+#edited_playlists {
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto%;
+	border: 1px solid white;
+	width: 40%;
+}
+
+#edited_playlists_table {
+	font-family:AlegreyaSansThin;
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 2%;
+	color: white;
+}
+
+#edited_playlists_table td, #edited_playlists_table th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#edited_playlists_table th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: rgb(26, 26, 26);
+	color: white;
+}
+
+#add_new_songs {
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto%;
+	border: 1px solid white;
+	width:40%;
+}
+
+#add_new_songs {
+	overflow-y: scroll;
+	height: 200px;
+	padding: 10px;
+	font-size: 20px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	width: 100%;
+}
+
+/*Playlists*/
