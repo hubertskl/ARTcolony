@@ -21,9 +21,18 @@ if (isset($_POST['review'])) {
     
     $id_media = $_GET['type'];
     
+	
+	$if_review = $db->prepare("SELECT * FROM reviews WHERE id_media = :id_media AND id_user = :user");
+	$if_review->bindParam(':id_media', $id_media);
+	$if_review->bindParam(':user', $user);
+    $if_review->execute();
+	
+	
+	
     try {
         require_once '../../../connection/connectWithDB.php';
-        
+        if($if_review->rowCount() == 0)
+		{
         if ($allright == true) {
             
             $result = $db->prepare("INSERT INTO reviews (review_text, id_media, id_user) VALUES (:review,:id_media,:user)");
@@ -31,6 +40,11 @@ if (isset($_POST['review'])) {
             $result->bindParam(':id_media', $id_media);
 			$result->bindParam(':user', $user);
             $result->execute();
+			
+			$add_resources = $db->prepare("UPDATE users SET user_resources = user_resources + 300 WHERE id_user = :user");
+			$add_resources->bindParam(':user', $user);
+            $add_resources->execute();
+			
             
             
             $_SESSION['review_added'] = true;
@@ -38,6 +52,10 @@ if (isset($_POST['review'])) {
             header('Location: /src/webApp/mainPage/mainPage.php#page4');
             
         }
+		}
+		else {
+			
+		}
     }
     catch (Exception $e) {
         echo '<span style="color:red;">Server ERROR!</span>';
@@ -49,14 +67,34 @@ if (isset($_POST['review'])) {
 if (isset($_GET['vote'])) {
     $id_media = $_GET['vote'];
     $alright  = true;
-    
+    $user = $_SESSION["id_user"];
+	
+	$if_voted = $db->prepare("SELECT * FROM votes WHERE id_media = :id_media AND id_user = :user");
+	$if_voted->bindParam(':id_media', $id_media);
+	$if_voted->bindParam(':user', $user);
+    $if_voted->execute();
+
     try {
+		if($if_voted->rowCount() == 0)
+		{
         if ($alright == true) {
             $vote = $db->prepare("UPDATE media SET review_counter = review_counter + 1 WHERE id_media = :id_media");
             $vote->bindParam(':id_media', $id_media);
             $vote->execute();
+			
+			$result = $db->prepare("INSERT INTO votes (id_media, id_user) VALUES (:id_media,:user)");
+            $result->bindParam(':id_media', $id_media);
+			$result->bindParam(':user', $user);
+            $result->execute();
+			
+			$add_resources = $db->prepare("UPDATE users SET user_resources = user_resources + 10 WHERE id_user = :user");
+			$add_resources->bindParam(':user', $user);
+            $add_resources->execute();
+			
+			
             header('location: /src/webApp/mainPage/mainPage.php#page4');
         }
+		}
         
     }
     catch (Exception $e) {

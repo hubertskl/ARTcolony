@@ -1,6 +1,7 @@
 <div id= "songs">
-
-        <input type="text" id = "search" placeholder= "Search for..." >
+     
+		<p class = "songs"> Here, you can search a song and add a review or vote.</br>You will receive 300 points for writing a review and 10 points for voting. </br>Remember: one song = one review </br> Proper length of your review should be between 3 and 500 characters, enjoy!</p></br>
+		<input type="text" id = "search" placeholder= "Search for..." >
 
 <br>
 <div id="feedback"></div>
@@ -11,7 +12,7 @@
 </div>
     
 <div id = "recent">
-    <p> Recent reviews </p></br>
+    <p class = "recent"> Recent reviews </p></br>
 	
 <?php
 SESSION_START();
