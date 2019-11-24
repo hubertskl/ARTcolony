@@ -49,7 +49,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
            success: function(data)
            {
 			   
-               alert('Your review is saved successfully!'); 
+               alert('Thanks! Your review is being processed'); 
 				$('textarea').val('');
            }
          });
@@ -69,7 +69,7 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
            success: function(data)
            {
 			   
-               alert('Voted!'); 
+               alert('Thanks! Your vote is being processed!'); 
 		
            }
          });
