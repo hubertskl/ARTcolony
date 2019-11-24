@@ -30,9 +30,9 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="title-box"></div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 top-nav">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 main-top-nav">
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 title-back">
-                    <a href="../../mainPage/mainPage.php">BACK</a>
+                    <a href="../../mainPage/mainPage.php#page1">BACK</a>
                 </div>
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 title-shop">SHOP</div>
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 title-order">
@@ -46,8 +46,10 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
                 if(isset($_SESSION['logged_id'])){
                 require_once '../../../connection/connectWithDB.php';
                 $userID=$_SESSION['id_user'];
-                $selectQuery = $db->prepare('SELECT * FROM media WHERE id_owner <> :user_id'); /* "<>" means in sql !=*/
+                $acceptedValue=1;
+                $selectQuery = $db->prepare('SELECT * FROM media WHERE id_owner <> :user_id AND is_accepted=:accValue'); /* "<>" means in sql !=*/
                 $selectQuery->bindParam(':user_id', $userID);
+                $selectQuery->bindParam(':accValue', $acceptedValue);
                 $selectQuery->execute();
                 //$mediaBox = $selectQuery->fetch();
 
@@ -56,15 +58,15 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
                     ?>
                     <div class="card-box col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
                     <div class="card">
-                       <img class="card-img-top" src="<?php echo $mediaBox['media_cover']; ?>" alt="<?php echo $mediaBox['media_title']; ?>">
+                      <!-- <img class="card-img-top" src="<?php echo $mediaBox['media_cover']; ?>" alt="<?php echo $mediaBox['media_title']; ?>">-->
                         <div class="card-body">
                             <h5 class="card-title">Title: <?php echo $mediaBox['media_title']; ?></h5>
                             <h6 class="card-title">Price: <?php echo $mediaBox['media_cost'];?></h6>
                             <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of
                                 the card's content.</p>-->
-                            <div >
-                              <a class="btn btn-outline-secondary" href="orderScript.php?id=<?php echo $mediaID ?>">add</a>
+                            <div class="card-button-style">
+                              <a class="btn btn-outline-secondary add-button-style" href="orderScript.php?id=<?php echo $mediaID ?>">add</a>
                             </div>
                         </div>
                     </div>
