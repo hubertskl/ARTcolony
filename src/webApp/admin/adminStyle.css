@@ -1,0 +1,23 @@
+
+body{
+
+}
+.admin-header{
+    display: inline-flex;
+    color: white !important;
+}
+.logoutStyle a{
+    color: white;
+    text-align: right;
+}
+.logoutStyle a:hover{
+    color: lightgray !important;
+    text-decoration: none;
+    text-align: right;
+}
+.padding-top{
+    padding-top: 2%;
+}
+.accept-container{
+
+}

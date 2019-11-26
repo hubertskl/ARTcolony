@@ -190,16 +190,100 @@ h2{
 	width: 90px;
 	margin-left:5px;
 }
+/*User page style*/
 
+#upload_form{
+	margin-top:1%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto;
+	width: 60%;
+	display: inline;
+}
+p.add_song{
+	font-size: 30px;
+	font-family:Lemon;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+h1.add_song{
+	font-size: 30px;
+	font-family:Lemon;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+
+label {
+	margin-left: 0.5%;
+	cursor: pointer;
+	color:white;
+	font-size: 22px;
+	font-family:AlegreyaSansThin;
+}
+
+#upload_music {
+	
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+input#submit_music[type=submit]{
+	margin-left: 0%;
+	border: none;
+	display: inline;
+	background-color: inherit;
+	font-size: 22px;
+	font-family:AlegreyaSansThin;
+	color:white;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+input#submit_music[type=submit]:hover{
+
+	border: none;
+	display: inline;
+	background-color: inherit;
+	font-size: 22px;
+	font-family:AlegreyaSansThin;
+	color:#E63C49;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+}
+
+/*User page style end*/
+
+/*Home page style*/
+#component{
+	margin-top:1%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto;
+	width: 60%;
+	display: inline;
+}
+p.component{
+	font-size: 30px;
+	font-family:Lemon;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+
+/*Home page style end*/
 
 /*Reviews style*/
-
 #songs{
-	margin-top:5%;
+	margin-top:2%;
 	float:left;
 	margin-left: 5%;
 	margin-right: auto;
 	width: 40%;
+	display: inline;
 }
 
 #recent{
@@ -233,21 +317,29 @@ p{
 	display: inline-block;
 	word-break:break-word;
 }
-a.songs{
-	text-decoration: none;
+
+p.recent{
+	font-size: 30px;
+	font-family:Lemon;
+	color:white;
 	display: inline-block;
-	font-size: 23px;
-	font-family:LemonTuesday;
+	word-break:break-word;
+}
+
+p.songs{
+	display: inline-block;
+	font-size: 20px;
+	font-family:AlegreyaSansThin;
 	color:white;
 }
 
-a.songs:hover{
-	text-decoration: none;
+p.songs:hover{
 	display: inline-block;
-	font-size: 23px;
-	font-family:LemonTuesday;
+	font-size: 20px;
+	font-family:AlegreyaSansThin;
 	color:#E63C49;
 }
+
 
 a{
 	text-decoration: none;
@@ -348,8 +440,6 @@ div.add_button input:hover {
 	display: inline-block;
 	text-decoration: none;
 }
-/*Reviews style - end*/
-
 /*Reviews style - end*/
 
 /*Playlists*/
