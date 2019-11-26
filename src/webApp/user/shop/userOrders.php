@@ -16,8 +16,9 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
     <meta charset="utf-8">
     <title>ARTcolony</title>
     <!--STYLE-->
-    <link rel="stylesheet" type="text/css" href="../../mainWebStyle/mainWebStyle.css">
     <link rel="stylesheet" type="text/css" href="shop-style/shopStyle.css">
+    <link rel="stylesheet" type="text/css" href="../../mainWebStyle/mainWebStyle.css">
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -30,11 +31,24 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="title-box"></div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 top-nav">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 main-top-nav">
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 title-back">
                     <a href="main-shop-page.php">BACK</a>
                 </div>
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 title-shop">ORDERS</div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 title-shop resource-style">your resources:
+                <?php
+                if($_SESSION['id_user']) {
+                    $id = $_SESSION['id_user'];
+                    require_once '../../../connection/connectWithDB.php';
+                    $resultResource=$db->prepare('SELECT * FROM users WHERE  id_user=:id');
+                    $resultResource->bindParam(':id',$id);
+                    $resultResource->execute();
+                    $userResources = $resultResource->fetch();
+                    echo $userResources['user_resources'];
+                }
+                ?>
+                </div>
             </div>
 
             </div>
@@ -43,10 +57,9 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
             <table class="table table-striped table-dark table-hover table-sm table-text">
                 <thead>
                 <tr>
-                    <th scope="col">order number</th>
                     <th scope="col">title</th>
                     <th scope="col">cost</th>
-                    <th scope="col">action</th>
+                    <th scope="col" class="center-col">action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -60,12 +73,11 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
                      if($result1) {
                             foreach ($result1 as $row) {
                                 echo "<tr>
-                                <td style='width: 10%'>" . $row['id_order'] . "</td>
                                 <td style='width: 60%'>" . $row['media_title'] . "</td>
                                 <td style='width: 10%'>" . $row['media_cost'] . "</td>
                                 <td style='width: 20%'>
-                                <a href='buyScript.php?id=" . $row['id_order'] . "'><button class='btn btn-outline-success' type='button'>BUY</button></a>
-                                <a href='deleteScript.php?id=" . $row['id_order'] . "'><button class='btn btn-outline-danger' type='button'>CANCEL</button></a>
+                                <a href='buyScript.php?id=" . $row['id_order'] . "'><button class='btn btn-outline-success width49' type='button'>BUY</button></a>
+                                <a href='deleteScript.php?id=" . $row['id_order'] . "'><button class='btn btn-outline-danger width49' type='button'>CANCEL</button></a>
                                 </td>";
 
 

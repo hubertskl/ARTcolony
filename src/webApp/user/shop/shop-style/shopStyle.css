@@ -1,9 +1,6 @@
-body{
-
-}
-
-.top-nav{
+.main-top-nav{
     display: flex;
+    padding-bottom: 2%;
 }
 .media-box{
     margin-left: 1%;
@@ -51,11 +48,52 @@ body{
 .card-box{
     padding:1%;
 }
-.card-box:hover .card{
-    background: #ddd !important;
-    transition: 0.4s;
-}
+
 .table{
     width: 95% !important;
     margin: auto;
+    font-family: AlegreyaSansThin;
+    font-size: 20px; !important;
+}
+.width49{
+    width: 49%;
+}
+.center-col{
+    text-align: center;
+}
+.card-button-style{
+    float: right;
+}
+.add-button-style{
+    font-family: AlegreyaSansThin !important;
+}
+.card-body{
+    font-family: AlegreyaSansThin !important;
+    font-weight: 400;
+}
+.card-title{
+    font-weight: 800;
+}
+.card {
+    color: white;
+    background-color: black !important;
+    border: 1px solid;
+    border-color: white !important;
+    border-radius: .25rem;
+}
+
+.card-box:hover .card{
+    background-color:#202020 !important;
+    transition: 0.5s;
+}
+.btn-outline-secondary{
+    border-color: white !important;
+    color: white !important;
+    font-weight: 900 !important;
+}
+.btn-outline-secondary:hover {
+    color: #fff !important;
+    background-color: #202020 !important;
+    border-color: #FF0066 !important;
+    transition: 0.5s;
 }
