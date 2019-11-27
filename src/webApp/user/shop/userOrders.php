@@ -27,7 +27,7 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="orders-container">
+<div id="userOrders-container" class="orders-container">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="title-box"></div>
