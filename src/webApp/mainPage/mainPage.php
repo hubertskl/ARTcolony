@@ -28,7 +28,7 @@ if (!isset($_SESSION['logged_id']))
 		<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box">
 		<div id="musicSidebar" class="musicSidebar" onmouseover="toggleMusicSidebar()" onmouseout="toggleMusicSidebar()">
 		
-					<div class="audio-player-cont">
+					<div id="audio-player-cont">
 						<div class="logo">
 							<img src="../user/music_player/audio-player.png" />
 						</div>
@@ -99,18 +99,6 @@ if (!isset($_SESSION['logged_id']))
 				<!-- THIS IS THE COMPONENT TO BE REPLACED EACH PAGE -->
 				<div id="pageContent">
 				
-				
-				
-					<div class="component">
-						<div id="last-songs">
-							<h2>Last uploaded songs:</h2>
-						</div>
-					</div>
-					<div class="component">
-						<div id="last-reviews">
-							<h2>Last reviews:</h2>
-						</div>
-					</div>
 				
 				
 				
