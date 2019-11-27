@@ -1,3 +1,6 @@
+#main-shop-container .title-box, #userOrders-container .title-box {
+    margin-top: -2%;
+}
 .main-top-nav{
     display: flex;
     padding-bottom: 2%;
@@ -96,4 +99,37 @@
     background-color: #202020 !important;
     border-color: #FF0066 !important;
     transition: 0.5s;
+}
+#main-shop-container .row, #userOrders-container .row{
+    margin-left:0px;
+    margin-right:0px;
+}
+.resource-nav{
+    color: white !important;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 36px;
+    text-align: left;
+    font-family:AlegreyaSansThin;
+    margin-top: -3%;
+    margin-bottom: 2%;
+}
+.resource-nav-item{
+    text-align: right;
+    border-bottom: 1px solid white;
+}
+/*download-music-container*/
+#download-music-container .resource-nav{
+    color: white !important;
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 36px;
+    text-align: left;
+    font-family:AlegreyaSansThin;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+.resource-item{
+    text-align: left;
+    border-bottom: 1px solid white;
 }
