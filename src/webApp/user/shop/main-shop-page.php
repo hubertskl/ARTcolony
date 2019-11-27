@@ -152,7 +152,7 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
                     $selectBoughtMedia = $db->prepare('SELECT * FROM bought_media WHERE id_user=:user_id ');
                     $selectBoughtMedia->bindParam(':user_id', $idUser);
                     $selectBoughtMedia->execute();
-                    $mediaBoxBoughtDownload = $selectBoughtMedia->fetch();
+                    while($mediaBoxBoughtDownload = $selectBoughtMedia->fetch()){
                     $mediaIDBoughtdownload=$mediaBoxBoughtDownload['id_media'];
 
                     $selectInfoBoughtMedia=$db->prepare('SELECT * FROM media WHERE id_media=:media_id ');
@@ -173,7 +173,7 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
                             </div>
                         </div><?php
                         }
-                        } ?>
+                        }} ?>
             </div>
 
         </div>
