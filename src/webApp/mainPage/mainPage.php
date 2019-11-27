@@ -49,6 +49,30 @@ if (!isset($_SESSION['logged_id']))
 							</div>
 							<div id="nextSongTitle" class="song-title"><b>Za chwilę :</b>Next song title goes here...</div>
 						</div>
+						<div id="playlists">
+							<table id = "all_playlists_table">
+								<thead>
+									<tr>
+										<th>Playlist name</th>
+									</tr>
+								</thead>
+								<tbody>
+								<thead>
+							<?php
+								$playlists_query = $db->prepare("SELECT * FROM playlists WHERE id_owner=:id");
+								$playlists_query->bindParam(":id",$_SESSION['id_user']);
+								$playlists_query->execute();
+								
+								while ($row = $playlists_query->fetch(PDO::FETCH_ASSOC)){
+									echo "<tr>
+										<td><a href = '../user/music_player/addPlaylist.php?playlist=" . $row['id_playlist'] . "'>" . $row['title_playlist'] . "</a></td>
+										</tr>";
+								}
+							?>
+								</thead>
+								</tbody>
+							</table>	
+						</div>
 					</div>
 		
 		</div>
@@ -98,20 +122,36 @@ if (!isset($_SESSION['logged_id']))
 					
 					<script type="text/javascript">
 					var songs = <?php
-							$music = $db->query("SELECT file_name FROM media");
-							$music_array = array();
-							while($row = $music->fetch(PDO::FETCH_ASSOC)) {
-									$music_array[] = $row['file_name'];
-								}
-							echo json_encode($music_array);
+							
+							if(isset($_SESSION['playlist_songs'])) {
+								$music_array = $_SESSION['playlist_songs'];
+								unset($_SESSION['playlist_songs']);
+								echo json_encode($music_array);
+								//loadSong();
+							}
+							else{
+								$music = $db->query("SELECT file_name FROM media");
+								$music_array = array();
+								while($row = $music->fetch(PDO::FETCH_ASSOC)) {
+										$music_array[] = $row['file_name'];
+									}
+								echo json_encode($music_array);
+							}
 					?>;
 					var display_titles = <?php
-							$titles = $db->query("SELECT media_title FROM media");
-							$titles_array = array();
-							while($row = $titles->fetch(PDO::FETCH_ASSOC)) {
-									$titles_array[] = $row['media_title'];
-								}
-							echo json_encode($titles_array);
+							if(isset($_SESSION['playlist_titles'])) {
+								$titles_array = $_SESSION['playlist_titles'];
+								unset($_SESSION['playlist_titles']);
+								echo json_encode($titles_array);
+							}
+							else {
+								$titles = $db->query("SELECT media_title FROM media");
+								$titles_array = array();
+								while($row = $titles->fetch(PDO::FETCH_ASSOC)) {
+										$titles_array[] = $row['media_title'];
+									}
+								echo json_encode($titles_array);
+							}
 					?>;
 					var songTitle = document.getElementById('songTitle');
 					var songSlider = document.getElementById('songSlider');
