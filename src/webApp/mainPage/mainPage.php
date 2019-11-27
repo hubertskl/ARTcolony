@@ -18,8 +18,10 @@ if (!isset($_SESSION['logged_id']))
 	<meta charset="utf-8">
 	<title>ARTcolony</title>
 	<link rel="stylesheet" type = "text/css" href="mainPageStyle/mainPageStyle.css">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="script.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 	<script src="../mainWebStyle/toggleSidebar.js"></script>
@@ -49,46 +51,23 @@ if (!isset($_SESSION['logged_id']))
 							</div>
 							<div id="nextSongTitle" class="song-title"><b>Za chwilę :</b>Next song title goes here...</div>
 						</div>
-						<div id="playlists">
-							<table id = "all_playlists_table">
-								<thead>
-									<tr>
-										<th>Playlist name</th>
-									</tr>
-								</thead>
-								<tbody>
-								<thead>
-							<?php
-								$playlists_query = $db->prepare("SELECT * FROM playlists WHERE id_owner=:id");
-								$playlists_query->bindParam(":id",$_SESSION['id_user']);
-								$playlists_query->execute();
-								
-								while ($row = $playlists_query->fetch(PDO::FETCH_ASSOC)){
-									echo "<tr>
-										<td><a href = '../user/music_player/addPlaylist.php?playlist=" . $row['id_playlist'] . "'>" . $row['title_playlist'] . "</a></td>
-										</tr>";
-								}
-							?>
-								</thead>
-								</tbody>
-							</table>	
-						</div>
 					</div>
 		
 		</div>
 		<div id="chatSidebar" class="chatSidebar" onmouseover="toggleChatSidebar()" onmouseout="toggleChatSidebar()">
-			    <div class="table-responsive">
-					<h2 align="center">Online Users</h2>
-					<div id="user_details"></div>
-				</div>
-		
+			<div class="table-responsive">
+				<h2 align="center">Online Users</h2>
+				<div id="user_details"></div>
+				<div id="user_model_details"></div>
 			</div>
+		
+		</div>
 				<div class="title-box"></div>
 					<div class="menu">
 						<ul>
 						  <li><a href="#page1">Home</a></li>
 						  <li><a href="#page2">Your Profile</a></li>
-						  <li><a href="#page3">Music Player</a></li>
+						  <li><a href="#player">Music Player</a></li>
 						  <li><a href="#page4">Reviews</a></li>
 						  <li><a href="../user/shop/main-shop-page.php">Shop</a></li>
 						  <li><a href="../user/logout.php">Logout</a></li>
@@ -97,9 +76,7 @@ if (!isset($_SESSION['logged_id']))
 					
 				
 				<!-- THIS IS THE COMPONENT TO BE REPLACED EACH PAGE -->
-				<div id="pageContent">
-				
-				
+				<div id="pageContent">		
 				
 					<div class="component">
 						<div id="last-songs">
@@ -122,36 +99,20 @@ if (!isset($_SESSION['logged_id']))
 					
 					<script type="text/javascript">
 					var songs = <?php
-							
-							if(isset($_SESSION['playlist_songs'])) {
-								$music_array = $_SESSION['playlist_songs'];
-								unset($_SESSION['playlist_songs']);
-								echo json_encode($music_array);
-								//loadSong();
-							}
-							else{
-								$music = $db->query("SELECT file_name FROM media");
-								$music_array = array();
-								while($row = $music->fetch(PDO::FETCH_ASSOC)) {
-										$music_array[] = $row['file_name'];
-									}
-								echo json_encode($music_array);
-							}
+							$music = $db->query("SELECT file_name FROM media");
+							$music_array = array();
+							while($row = $music->fetch(PDO::FETCH_ASSOC)) {
+									$music_array[] = $row['file_name'];
+								}
+							echo json_encode($music_array);
 					?>;
 					var display_titles = <?php
-							if(isset($_SESSION['playlist_titles'])) {
-								$titles_array = $_SESSION['playlist_titles'];
-								unset($_SESSION['playlist_titles']);
-								echo json_encode($titles_array);
-							}
-							else {
-								$titles = $db->query("SELECT media_title FROM media");
-								$titles_array = array();
-								while($row = $titles->fetch(PDO::FETCH_ASSOC)) {
-										$titles_array[] = $row['media_title'];
-									}
-								echo json_encode($titles_array);
-							}
+							$titles = $db->query("SELECT media_title FROM media");
+							$titles_array = array();
+							while($row = $titles->fetch(PDO::FETCH_ASSOC)) {
+									$titles_array[] = $row['media_title'];
+								}
+							echo json_encode($titles_array);
 					?>;
 					var songTitle = document.getElementById('songTitle');
 					var songSlider = document.getElementById('songSlider');
@@ -237,6 +198,8 @@ if (!isset($_SESSION['logged_id']))
 					
 					setInterval(function(){
 						update_last_activity();
+						fetch_user();
+						update_chat_history_data();
 					}, 5000);
 					
 					function fetch_user() {
@@ -260,6 +223,68 @@ if (!isset($_SESSION['logged_id']))
 					  })
 					 }
 					
+					function make_chat_dialog_box(to_user_id, to_user_name)
+					 {
+					  var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title="You have chat with '+to_user_name+'">';
+					  modal_content += '<div style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
+					  modal_content += fetch_user_chat_history(to_user_id);
+					  modal_content += '</div>';
+					  modal_content += '<div class="form-group">';
+					  modal_content += '<textarea name="chat_message_'+to_user_id+'" id="chat_message_'+to_user_id+'" class="form-control"></textarea>';
+					  modal_content += '</div><div class="form-group" align="right">';
+					  modal_content+= '<button type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat">Send</button></div></div>';
+					  $('#user_model_details').html(modal_content);
+					 }
+
+					$(document).on('click', '.start_chat', function(){
+					  var to_user_id = $(this).data('touserid');
+					  var to_user_name = $(this).data('tousername');
+					  make_chat_dialog_box(to_user_id, to_user_name);
+					  $("#user_dialog_"+to_user_id).dialog({
+					   autoOpen:false,
+					   width:400
+					  });
+					  $('#user_dialog_'+to_user_id).dialog('open');
+					 });
+					 
+					 $(document).on('click', '.send_chat', function(){
+					  var to_user_id = $(this).attr('id');  
+					  var chat_message = $('#chat_message_'+to_user_id).val();
+					  $.ajax({
+					   url:"../chat/insert_chat.php",
+					   method:"POST",
+					   data:{to_user_id:to_user_id, chat_message:chat_message},
+					   success:function(data)
+					   {
+						$('#chat_message_'+to_user_id).val('');
+						$('#chat_history_'+to_user_id).html(data);
+					   }
+					  })
+					 });
+					
+					 function fetch_user_chat_history(to_user_id)
+					 {
+					  $.ajax({
+					   url:"../chat/fetch_user_chat_history.php",
+					   method:"POST",
+					   data:{to_user_id:to_user_id},
+					   success:function(data){
+						$('#chat_history_'+to_user_id).html(data);
+					   }
+					  })
+					 }
+
+					 function update_chat_history_data()
+					 {
+					  $('.chat_history').each(function(){
+					   var to_user_id = $(this).data('touserid'); 
+					   fetch_user_chat_history(to_user_id);
+					  });
+					 }
+
+					 $(document).on('click', '.ui-button-icon', function(){
+					  $('.user_dialog').dialog('destroy').remove();
+					 });
 					
 					</script>
 		</div>

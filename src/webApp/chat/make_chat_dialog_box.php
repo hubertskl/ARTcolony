@@ -1,4 +1,4 @@
-<?php
+ <?php
 SESSION_START();
 if (!isset($_SESSION['logged_id'])) 
 {
@@ -50,7 +50,7 @@ if (!isset($_SESSION['logged_id']))
 	 $output .= '
 	 
 	 <tr>
-	  <td><p>'.$row['login'].' '.count_unseen_message($row['id_user'], $_SESSION['id_user'], $db).'</p></td>
+	  <td><p>'.$row['login'].' '.count_unseen_message($row['id_user'], $_SESSION['id_user'], $db).'</td>
 	  <td><p>'.$status.'</p></td>
 	  <td><button type="button" class="btn start_chat" style="button" data-touserid="'.$row['id_user'].'" data-tousername="'.$row['login'].'">Start Chat</button></td>
 	 </tr>
