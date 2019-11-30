@@ -67,7 +67,7 @@ if (!isset($_SESSION['logged_id']))
 						<ul>
 						  <li><a href="#page1">Home</a></li>
 						  <li><a href="#page2">Your Profile</a></li>
-						  <li><a href="#player">Music Player</a></li>
+						  <li><a href="#page3">Music Player</a></li>
 						  <li><a href="#page4">Reviews</a></li>
 						  <li><a href="../user/shop/main-shop-page.php">Shop</a></li>
 						  <li><a href="../user/logout.php">Logout</a></li>
@@ -87,20 +87,36 @@ if (!isset($_SESSION['logged_id']))
 					
 					<script type="text/javascript">
 					var songs = <?php
-							$music = $db->query("SELECT file_name FROM media");
-							$music_array = array();
-							while($row = $music->fetch(PDO::FETCH_ASSOC)) {
-									$music_array[] = $row['file_name'];
-								}
-							echo json_encode($music_array);
+							
+							if(isset($_SESSION['playlist_songs'])) {
+								$music_array = $_SESSION['playlist_songs'];
+								unset($_SESSION['playlist_songs']);
+								echo json_encode($music_array);
+								//loadSong();
+							}
+							else{
+								$music = $db->query("SELECT file_name FROM media");
+								$music_array = array();
+								while($row = $music->fetch(PDO::FETCH_ASSOC)) {
+										$music_array[] = $row['file_name'];
+									}
+								echo json_encode($music_array);
+							}
 					?>;
 					var display_titles = <?php
-							$titles = $db->query("SELECT media_title FROM media");
-							$titles_array = array();
-							while($row = $titles->fetch(PDO::FETCH_ASSOC)) {
-									$titles_array[] = $row['media_title'];
-								}
-							echo json_encode($titles_array);
+							if(isset($_SESSION['playlist_titles'])) {
+								$titles_array = $_SESSION['playlist_titles'];
+								unset($_SESSION['playlist_titles']);
+								echo json_encode($titles_array);
+							}
+							else {
+								$titles = $db->query("SELECT media_title FROM media");
+								$titles_array = array();
+								while($row = $titles->fetch(PDO::FETCH_ASSOC)) {
+										$titles_array[] = $row['media_title'];
+									}
+								echo json_encode($titles_array);
+							}
 					?>;
 					var songTitle = document.getElementById('songTitle');
 					var songSlider = document.getElementById('songSlider');
