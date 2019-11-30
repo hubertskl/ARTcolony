@@ -2,7 +2,7 @@
 session_start();
 require_once '../../../connection/connectWithDB.php';
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['playlist_name'])) {
 	if (!empty($_POST['check_list']) && !empty($_POST['playlist_name'])) {
 		
 		$allright=true;
@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 		
 		if (strlen($playlist_name) < 5 || strlen($playlist_name) > 40) {
 			$allright = false;
-			$_SESSION['e_addplaylist']="The title should be from 5 to 40 characters.";
+			//$_SESSION['e_addplaylist']="The title should be from 5 to 40 characters.";
 			header('Location: /src/webApp/mainPage/mainPage.php#page3');
 		}
 		
@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
 		
 		} else {
 			$allright = false;
-			$_SESSION['e_addplaylist']="Type the title and choose some songs from the list";
+			//$_SESSION['e_addplaylist']="Type the title and choose some songs from the list";
 			header('Location: /src/webApp/mainPage/mainPage.php#page3');
 		}
 	}
@@ -93,7 +93,7 @@ if (isset($_GET['deletesong'])) {
 	
 }
 	
-if (isset($_POST['add'])) {
+if (isset($_POST['add_new_songs'])) {
 	if (!empty($_POST['add_new_songs'])) {
 		
 		$allright=true;
@@ -162,5 +162,17 @@ if(isset($_GET['playlist'])) {
 	//echo json_encode($_SESSION['playlist_titles']);
 	header('Location: /src/webApp/mainPage/mainPage.php');
 }	
+
+if (isset($_GET['deleteplaylist'])) {
+	$delete_pos = $db->prepare("DELETE FROM playlist_positions WHERE id_playlist=:id");
+	$delete_pos->bindParam('id', $_GET['deleteplaylist']);
+	$delete_pos->execute();
+	
+	$delete_playlist = $db->prepare("DELETE FROM playlists WHERE id_playlist=:id");
+	$delete_playlist->bindParam('id', $_GET['deleteplaylist']);
+	$delete_playlist->execute();
+	
+	header('Location: /src/webApp/mainPage/mainPage.php#page3');
+}
 
 ?>
