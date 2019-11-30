@@ -51,6 +51,30 @@ if (!isset($_SESSION['logged_id']))
 							</div>
 							<div id="nextSongTitle" class="song-title"><b>Za chwilę :</b>Next song title goes here...</div>
 						</div>
+						<div id="playlists">
+							<table id = "all_playlists_table">
+								<thead>
+									<tr>
+										<th>Playlist name</th>
+									</tr>
+								</thead>
+								<tbody>
+								<thead>
+							<?php
+								$playlists_query = $db->prepare("SELECT * FROM playlists WHERE id_owner=:id");
+								$playlists_query->bindParam(":id",$_SESSION['id_user']);
+								$playlists_query->execute();
+								
+								while ($row = $playlists_query->fetch(PDO::FETCH_ASSOC)){
+									echo "<tr>
+										<td><a href = '../user/music_player/addPlaylist.php?playlist=" . $row['id_playlist'] . "'>" . $row['title_playlist'] . "</a></td>
+										</tr>";
+								}
+							?>
+								</thead>
+								</tbody>
+							</table>	
+						</div>
 					</div>
 		
 		</div>
