@@ -80,9 +80,23 @@ a{
     top: 0;
     left: 0;
     background-color: #111;
+	background-image: url("../../mainWebStyle/musicsidebar.png");
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    white-space: nowrap;
+}
+
+.musicSidebar:hover {
+    height: 100%;
+    width: 30px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+	background-image: url("");
+    overflow-x: hidden;
+    transition: 0.5s;
     white-space: nowrap;
 }
         
@@ -104,7 +118,6 @@ a{
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
     white-space: nowrap;
 }
         
@@ -132,10 +145,10 @@ h2{
 	
 }
 
-.audio-player-cont{
+#audio-player-cont{
 	width: 300px;
 	height: 400px;
-	
+	visibility: hidden;
 	color: white;
 	font-family: verdana;
 	font-size: 12px;
@@ -449,7 +462,6 @@ div.add_button input:hover {
 	float:left;
 	margin-left: 5%;
 	margin-right: auto%;
-	border: 1px solid white;
 	width:40%;
 }
 
@@ -468,7 +480,6 @@ div.add_button input:hover {
 	float:right;
 	margin-left: auto%;
 	margin-right: 5%;
-	border: 1px solid white;
 	width: 40%;
 }
 
@@ -499,7 +510,6 @@ div.add_button input:hover {
 	float:left;
 	margin-left: 5%;
 	margin-right: auto%;
-	border: 1px solid white;
 	width: 40%;
 }
 
