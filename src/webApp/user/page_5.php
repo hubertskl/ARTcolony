@@ -1,44 +1,4 @@
-
-
-<div id="edited_playlist">
-	<?php
-		session_start();
-		require_once '../../connection/connectWithDB.php';
-	?>
-
-	<h2><?php
-		$title = $db->prepare("SELECT title_playlist FROM playlists WHERE id_playlist=:id");
-		$title->bindParam(':id',$_SESSION['id_playlist']);
-		$title->execute();
-		
-		$title_name = $title->fetch(PDO::FETCH_ASSOC);
-		echo $title_name['title_playlist'];
-	?></h2>
-	<table id = "edited_playlists_table">
-		<thead>
-			<tr>
-				<th>Songs of this playlist:</th>
-				<th>Action:</th>
-			</tr>
-		</thead>
-		<tbody>
-		<thead>
-			<?php
-				foreach (array_combine($_SESSION['songs_titles'], $_SESSION['songs_id']) as $valuename => $valueid) {
-					echo '<tr>
-							<td>' . $valuename . '</td>';
-					echo '<td><form action = "../user/music_player/addPlaylist.php?deletesong=' . $valueid . '" method="post" class="deletesong">
-						<input type = "submit" name = "deletesong" input id="btn" class="btn" value = "Delete"></input>';
-					
-					echo '</form></td>';		
-				}
-			?>
-		</thead>
-		</tbody>
-	</table>
-</div>	
-	
-<div id="add_playlist">
+<div id="add_new_songs">
 	<h2>Add some new songs:</h2><br>
 	<form action="../user/music_player/addPlaylist.php" method="post" class="add_song" >
 	<div id="input_data">
@@ -63,13 +23,53 @@
 		}
 	?>
 </div>
-<div id = "delete_playlist">
-<?php
+
+<div id="edited_playlist">
+	<?php
+		session_start();
+		require_once '../../connection/connectWithDB.php';
+	?>
+	<h2><?php
+		$title = $db->prepare("SELECT title_playlist FROM playlists WHERE id_playlist=:id");
+		$title->bindParam(':id',$_SESSION['id_playlist']);
+		$title->execute();
+		
+		$title_name = $title->fetch(PDO::FETCH_ASSOC);
+		echo "Your playlist: " . $title_name['title_playlist'];
+	?></h2>
+	<table id = "edited_playlists_table">
+		<thead>
+			<tr>
+				<th>Songs of this playlist:</th>
+				<th>Action:</th>
+			</tr>
+		</thead>
+		<tbody>
+		<thead>
+			<?php
+				foreach (array_combine($_SESSION['songs_titles'], $_SESSION['songs_id']) as $valuename => $valueid) {
+					echo '<tr>
+							<td>' . $valuename . '</td>';
+					echo '<td><form action = "../user/music_player/addPlaylist.php?deletesong=' . $valueid . '" method="post" class="deletesong">
+						<input type = "submit" name = "deletesong" input id="btn" class="btn" value = "Delete"></input>';
+					
+					echo '</form></td>';		
+				}
+			?>
+		</thead>
+		</tbody>
+	</table>
+	<br>
+	<h3>
+	Warning! This deletes your playlist permanently!
+	</h3>
+	<?php
 	echo ' <form action = "../user/music_player/addPlaylist.php?deleteplaylist=' . $_SESSION['id_playlist'] . '" method="post" class="deleteplaylist">';
 	echo '<input type = "submit" name = "deleteplaylist" input id="btn" class="btn" value = "Delete this playlist"></input>';
 	echo '</form>';	
-?>
-</div>
+	?>
+	
+</div>	
 
 <script>
 	
