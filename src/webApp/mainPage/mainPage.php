@@ -49,7 +49,7 @@ if (!isset($_SESSION['logged_id']))
 								<input id="volumeSlider" class="volume-slider" type="range" min="0" max="1" step="0.01" onchange="adjustVolume()" />
 								<img src="../user/music_player/volume-up.png" width="15px" style="margin-left:2px;" />
 							</div>
-							<div id="nextSongTitle" class="song-title"><b>Za chwilę :</b>Next song title goes here...</div>
+							<div id="nextSongTitle" class="song-title"><b>Next :</b>Next song title goes here...</div>
 						</div>
 						<div id="playlists">
 							<table id = "all_playlists_table">

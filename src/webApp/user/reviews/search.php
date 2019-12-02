@@ -3,7 +3,7 @@
 include_once '../../../connection/connectWithDB.php';
 $s=$_GET['usearch'];
 
-$sql    = "SELECT id_media, media_title, review_counter FROM media WHERE media_title LIKE '%$s%'";
+$sql    = "SELECT id_media, media_title, review_counter FROM media WHERE media_title LIKE '%$s%' AND is_accepted = 1";
 $result = $db->query($sql);
 
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
