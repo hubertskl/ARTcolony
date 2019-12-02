@@ -118,6 +118,13 @@
     text-align: right;
     border-bottom: 1px solid white;
 }
+/*shop and download cards*/
+.card-img-top-new-style{
+    object-fit: cover !important;
+    height: 20vw !important;
+}
+
+
 /*download-music-container*/
 #download-music-container .resource-nav{
     color: white !important;

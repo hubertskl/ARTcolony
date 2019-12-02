@@ -72,7 +72,7 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
                     ?>
                     <div class="card-box col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
                     <div class="card">
-                      <!-- <img class="card-img-top" src="<?php echo $mediaBox['media_cover']; ?>" alt="<?php echo $mediaBox['media_title']; ?>">-->
+                      <img class="card-img-top card-img-top-new-style" src="../covers/accepted_covers/<?php echo $mediaBox['media_cover']; ?>" alt="<?php echo $mediaBox['media_title']; ?>">
                         <div class="card-body">
                             <h5 class="card-title">Title: <?php echo $mediaBox['media_title']; ?></h5>
                             <h6 class="card-title">Price: <?php echo $mediaBox['media_cost'];?></h6>
@@ -140,7 +140,7 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
                         ?>
                         <div class="card-box col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
                         <div class="card">
-                            <!-- <img class="card-img-top" src="<?php echo $mediaBoxDownload['media_cover']; ?>" alt="<?php echo $mediaBoxDownload['media_title']; ?>">-->
+                            <img class="card-img-top card-img-top-new-style" src="../covers/accepted_covers/<?php echo $mediaBoxDownload['media_cover']; ?>" alt="<?php echo $mediaBoxDownload['media_title']; ?>">
                             <div class="card-body">
                                 <h5 class="card-title">Title: <?php echo $mediaBoxDownload['media_title']; ?></h5>
                                 <div class="card-button-style">
@@ -163,7 +163,7 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
                          ?>
                         <div class="card-box col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
                             <div class="card">
-                                <!-- <img class="card-img-top" src="<?php echo $infoMedia['media_cover']; ?>" alt="<?php echo $infoMedia['media_title']; ?>">-->
+                                <img class="card-img-top card-img-top-new-style" src="../covers/accepted_covers/<?php echo $infoMedia['media_cover']; ?>" alt="<?php echo $infoMedia['media_title']; ?>">
                                 <div class="card-body">
                                     <h5 class="card-title">Title: <?php echo $infoMedia['media_title']; ?></h5>
                                     <div class="card-button-style">
