@@ -119,7 +119,7 @@ if (!isset($_SESSION['logged_id']))
 								//loadSong();
 							}
 							else{
-								$music = $db->query("SELECT file_name FROM media");
+								$music = $db->query("SELECT file_name FROM media WHERE is_accepted=1");
 								$music_array = array();
 								while($row = $music->fetch(PDO::FETCH_ASSOC)) {
 										$music_array[] = $row['file_name'];
@@ -134,7 +134,7 @@ if (!isset($_SESSION['logged_id']))
 								echo json_encode($titles_array);
 							}
 							else {
-								$titles = $db->query("SELECT media_title FROM media");
+								$titles = $db->query("SELECT media_title FROM media WHERE is_accepted=1");
 								$titles_array = array();
 								while($row = $titles->fetch(PDO::FETCH_ASSOC)) {
 										$titles_array[] = $row['media_title'];
