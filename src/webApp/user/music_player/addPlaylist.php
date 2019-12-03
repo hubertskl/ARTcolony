@@ -146,6 +146,7 @@ if(isset($_GET['playlist'])) {
 				
 	$title_array = array();
 	$music_array = array();
+	$cover_array = array();
 	foreach($id_songs as $value) {
 		$song = $db->prepare("SELECT * FROM media WHERE id_media=:id");
 		$song->bindParam(":id", $value);
@@ -153,14 +154,16 @@ if(isset($_GET['playlist'])) {
 		while ($row = $song->fetch(PDO::FETCH_ASSOC)){
 			array_push($music_array, $row['file_name']);
 			array_push($title_array, $row['media_title']);
+			array_push($cover_array, $row['media_cover']);
 			}
 		}
 	$_SESSION['playlist_songs'] = $music_array;
 	$_SESSION['playlist_titles'] = $title_array;
+	$_SESSION['playlist_covers'] = $cover_array;
 	
 	//echo json_encode($_SESSION['playlist_songs']);
 	//echo json_encode($_SESSION['playlist_titles']);
-	header('Location: /src/webApp/mainPage/mainPage.php');
+	header('Location: /src/webApp/mainPage/mainPage.php#page1');
 }	
 
 if (isset($_GET['deleteplaylist'])) {
@@ -173,6 +176,20 @@ if (isset($_GET['deleteplaylist'])) {
 	$delete_playlist->execute();
 	
 	header('Location: /src/webApp/mainPage/mainPage.php#page3');
+}
+
+if (isset($_GET['track'])) {
+	$get_track = $db->prepare("SELECT file_name FROM media WHERE id_media=:id");
+	$get_track->bindParam('id', $_GET['track']);
+	$get_track->execute();
+	
+	while($row = $get_track->fetch(PDO::FETCH_ASSOC)){
+		$file_name = $row['file_name'];
+	}
+	
+	$_SESSION['chosen_track'] = $file_name;
+	
+	header('Location: /src/webApp/mainPage/mainPage.php#page2');
 }
 
 ?>

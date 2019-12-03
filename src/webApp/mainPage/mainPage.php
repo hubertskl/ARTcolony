@@ -27,13 +27,14 @@ if (!isset($_SESSION['logged_id']))
 	<script src="../mainWebStyle/toggleSidebar.js"></script>
 
 	<div id="main-container">
-		<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box">
+		
 		<div id="musicSidebar" class="musicSidebar" onmouseover="toggleMusicSidebar()" onmouseout="toggleMusicSidebar()">
 		
 					<div id="audio-player-cont">
 						<div class="logo">
-							<img src="../user/music_player/audio-player.png" />
+							<img id="cover" src="../user/covers/accepted_covers/default.png">
 						</div>
+	
 						<div class="player">
 							<div id="songTitle" class="song-title">My Song title will go here My Song title will go here My Song title will go here</div>
 							<input id="songSlider" class="song-slider" type="range" min="0" step="1" onchange="seekSong()" />
@@ -149,11 +150,29 @@ if (!isset($_SESSION['logged_id']))
 					var volumeSlider = document.getElementById('volumeSlider');
 					var nextSongTitle = document.getElementById('nextSongTitle');
 					var song = new Audio();
+					var cover = document.getElementById('cover');
+					var cover_array =
+					<?php
+						if(isset($_SESSION['playlist_covers'])) {
+							$covers_array = $_SESSION['playlist_covers'];
+							unset($_SESSION['playlist_covers']);
+							echo json_encode($covers_array);
+							}
+						else {
+							$covers = $db->query("SELECT media_cover FROM media WHERE is_accepted=1");
+							$covers_array = array();
+							while($row = $covers->fetch(PDO::FETCH_ASSOC)) {
+								$covers_array[] = $row['media_cover'];
+								}
+							echo json_encode($covers_array);
+						}
+					?>;
 					var currentSong =
 					<?php
-							if (isset($_GET['track'])) {
-								$c = "songs.indexOf('".$_GET['track']."')";
-								echo $c;
+							if (isset($_SESSION['chosen_track'])) {
+							$c = "songs.indexOf('".$_SESSION['chosen_track']."')";
+							unset($_SESSION['chosen_track']);
+							echo $c;
 							}
 							else {
 								$c = 0;
@@ -164,6 +183,7 @@ if (!isset($_SESSION['logged_id']))
 					function loadSong () {
 						song.src = "../user/uploads/accepted_music/" + songs[currentSong];
 						songTitle.textContent = display_titles[currentSong];
+						cover.src = "../user/covers/accepted_covers/" + cover_array[currentSong];
 						nextSongTitle.innerHTML = "<b>Next: </b>" + display_titles[currentSong + 1 % songs.length];
 						song.playbackRate = 1;
 						song.volume = volumeSlider.value;
@@ -315,7 +335,11 @@ if (!isset($_SESSION['logged_id']))
 					 });
 					
 					</script>
-		</div>
+		
+	
 	</div>
+	
+	<footer class="footer"><div id="footer_text"><a href="#page7">© ARTcolony 2019 | About us and contact</a></div></footer>
+	
 </body>
 </html>
