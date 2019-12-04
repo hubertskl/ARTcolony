@@ -41,7 +41,7 @@ if (isset($_POST['review'])) {
 			$result->bindParam(':user', $user);
             $result->execute();
 			
-			$add_resources = $db->prepare("UPDATE users SET user_resources = user_resources + 300 WHERE id_user = :user");
+			$add_resources = $db->prepare("UPDATE users SET user_resources = user_resources + 100 WHERE id_user = :user");
 			$add_resources->bindParam(':user', $user);
             $add_resources->execute();
 			

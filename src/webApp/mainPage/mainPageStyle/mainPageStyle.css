@@ -137,13 +137,6 @@ h2{
 	display: inline-block;
 }
 
-.component{
-	
-}
-
-#last-songs{
-	
-}
 
 #audio-player-cont{
 	width: 300px;
@@ -209,7 +202,7 @@ h2{
 	margin-top:1%;
 	float:left;
 	margin-left: 5%;
-	margin-right: auto%;
+	margin-right: auto;
 	width: 40%;
 	display: inline;
 }
@@ -217,7 +210,7 @@ h2{
 #all_user_songs {
 	margin-top:1%;
 	float:right;
-	margin-left: auto%;
+	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
 	display: inline;
@@ -293,9 +286,18 @@ input#submit_music[type=submit]:hover{
 	float:left;
 	margin-left: 5%;
 	margin-right: auto;
-	width: 60%;
+	width: 50%;
 	display: inline;
 }
+
+#users{
+	margin-top:5%;
+	float:right;
+	margin-left: auto;
+	margin-right: 5%;
+	width: 40%;
+}
+
 p.component{
 	font-size: 30px;
 	font-family:Lemon;
@@ -319,7 +321,7 @@ p.component{
 #recent{
 	margin-top:5%;
 	float:right;
-	margin-left: auto%;
+	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
 	background-color:#1a1a1a;
@@ -472,13 +474,67 @@ div.add_button input:hover {
 }
 /*Reviews style - end*/
 
+/*Users pages style*/
+
+#info{
+	float:left;
+	margin-left: 5%;
+	width: 40%;
+	display: inline;
+}
+
+#users_songs{
+	margin-top:5%;
+	float:right;
+	width: 40%;
+	background-color:#1a1a1a;
+
+}
+
+#users_content{
+	align-content: left;
+}
+
+.users_content{
+	align-content: left;
+}
+
+.user_name{
+	position:center;
+	text-align: center;
+	 
+
+}
+
+p.user_login{
+	font-size: 50px;
+	font-family:Lemon;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+p.user_name{
+	font-size: 35px;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+
+
+
+
+/*Users pages - end*/
+
+
+
+
 /*Playlists*/
 
 #add_playlist {
 	margin-top:5%;
 	float:left;
 	margin-left: 5%;
-	margin-right: auto%;
+	margin-right: auto;
 	width:40%;
 }
 
@@ -496,7 +552,7 @@ div.add_button input:hover {
 	font-family: Lemon;
 	margin-top:5%;
 	float:right;
-	margin-left: auto%;
+	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
 }
@@ -533,7 +589,7 @@ div.add_button input:hover {
 	font-family: Lemon;
 	margin-top:5%;
 	float:right;
-	margin-left: auto%;
+	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
 }
@@ -565,7 +621,7 @@ div.add_button input:hover {
 	margin-top:5%;
 	float:left;
 	margin-left: 5%;
-	margin-right: auto%;
+	margin-right: auto;
 	width:40%;
 }
 
