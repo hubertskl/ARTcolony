@@ -54,6 +54,9 @@ function checkURL(hash)
 	
 		else if(hash=="#page7")
 		loadPage_7(hash);
+	
+		else if(hash=="#page8")
+		loadPage_8(hash);
 		
 		else
 		loadPage(hash);
@@ -230,6 +233,29 @@ function loadPage_7(url)
 	$.ajax({
 		type: "POST",
 		url: "../user/page_7.php",
+		data: 'page='+url,
+		dataType: "html",
+		success: function(msg){
+			
+			if(parseInt(msg)!=0)
+			{
+				$('#pageContent').html(msg);
+				$('#loading').css('visibility','hidden');
+			}
+		}
+		
+	});
+}
+
+function loadPage_8(url)
+{
+	url=url.replace('#page','');
+	
+	$('#loading').css('visibility','visible');
+	
+	$.ajax({
+		type: "POST",
+		url: "../user/page_8.php",
 		data: 'page='+url,
 		dataType: "html",
 		success: function(msg){

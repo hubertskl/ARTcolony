@@ -191,6 +191,24 @@ h2{
 	width: auto;
 }
 
+#edited_song .edited_song_cover {
+	float:center;
+	width:150px;
+	height:150px;
+}
+
+.edited_song_cover #cover {
+	float:center;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	max-width: 100%;
+    max-height: 100%;
+    height: auto;
+	width: auto;
+	border: 1px solid white;
+}
+
 .player{
 	margin: 7px;
 }
@@ -237,7 +255,7 @@ h2{
 	margin-top:1%;
 	float:left;
 	margin-left: 5%;
-	margin-right: auto%;
+	margin-right: auto;
 	width: 40%;
 	display: inline;
 }
@@ -245,7 +263,7 @@ h2{
 #all_user_songs {
 	margin-top:1%;
 	float:right;
-	margin-left: auto%;
+	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
 	display: inline;
@@ -352,7 +370,7 @@ p.component{
 #recent{
 	margin-top:5%;
 	float:right;
-	margin-left: auto%;
+	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
 	background-color:#1a1a1a;
@@ -511,8 +529,18 @@ div.add_button input:hover {
 	margin-top:5%;
 	float:left;
 	margin-left: 5%;
-	margin-right: auto%;
+	margin-right: auto;
 	width:40%;
+	height: 400px;
+}
+
+#songs_manager {
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto;
+	width:40%;
+	height: 400px;
 }
 
 #all_songs {
@@ -529,9 +557,19 @@ div.add_button input:hover {
 	font-family: Lemon;
 	margin-top:5%;
 	float:right;
-	margin-left: auto%;
+	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
+	height: 400px;
+}
+
+#songs_status {
+	margin-top:5%;
+	float:right;
+	margin-left: auto;
+	margin-right: 5%;
+	width: 40%;
+	height: 400px;
 }
 
 #all_playlists_table {
@@ -566,9 +604,29 @@ div.add_button input:hover {
 	font-family: Lemon;
 	margin-top:5%;
 	float:right;
-	margin-left: auto%;
+	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
+}
+
+#edited_song {
+	font-family: Lemon;
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto;
+	width: 40%;
+	border: 1px solid white;
+}
+
+#edit_song {
+	font-family: Lemon;
+	margin-top:5%;
+	float:right;
+	margin-left: auto;
+	margin-right: 5%;
+	width: 40%;
+	border: 1px solid white;
 }
 
 
@@ -598,9 +656,12 @@ div.add_button input:hover {
 	margin-top:5%;
 	float:left;
 	margin-left: 5%;
-	margin-right: auto%;
+	margin-right: auto;
 	width:40%;
 }
+
+
+
 
 /*Playlists*/
 

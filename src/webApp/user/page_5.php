@@ -60,12 +60,12 @@
 		</tbody>
 	</table>
 	<br>
-	<h3>
-	Warning! This deletes your playlist permanently!
-	</h3>
+	
 	<?php
 	echo ' <form action = "../user/music_player/addPlaylist.php?deleteplaylist=' . $_SESSION['id_playlist'] . '" method="post" class="deleteplaylist">';
-	echo '<input type = "submit" name = "deleteplaylist" input id="btn" class="btn" value = "Delete this playlist"></input>';
+	echo '<input type = "submit" name = "deleteplaylist" input id="btn" class="btn" value = "Delete this playlist"></input><h3>
+	Warning! This deletes your playlist permanently!
+	</h3>';
 	echo '</form>';	
 	?>
 	
