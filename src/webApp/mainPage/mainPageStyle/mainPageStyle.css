@@ -616,7 +616,6 @@ div.add_button input:hover {
 	margin-left: 5%;
 	margin-right: auto;
 	width: 40%;
-	border: 1px solid white;
 }
 
 #edit_song {
@@ -626,7 +625,6 @@ div.add_button input:hover {
 	margin-left: auto;
 	margin-right: 5%;
 	width: 40%;
-	border: 1px solid white;
 }
 
 

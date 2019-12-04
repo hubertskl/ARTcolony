@@ -20,6 +20,10 @@
 
 <div id="edit_song">
 <h2>Edit your song</h2><br>
+<p class="songs">Your title should have 5 - 30 characters.
+You can choose a new cover of your song, but it is not required(.jpg, .png, .bmp or .gif).
+Cover needs to be less than 15MB!
+						</p><br>
 	<div id="upload_form">
 		<form action="../user/music_player/addPlaylist.php" method="post" enctype="multipart/form-data">
 			<input type="text" name="new_song_title" id="new_song_title" value= "<?php echo $song_title; ?>"><br><br>

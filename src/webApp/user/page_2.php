@@ -5,7 +5,12 @@
 						<p class = "add_song">Add new song here </p></br>
 						<p class="songs">After successful uploading of your song, it needs to be accepted by our administrator.
 						Then, your masterpiece will appear in the whole system. Enjoy!</p><br>
-						<p class="songs">You can choose the cover of your song, but it is not required.</p>
+						<p class="songs">Your title should have 5 - 30 characters.
+						Supported music extensions: .mp3, .wav, .aac or .flac.
+						You can choose the cover of your song, but it is not required(.jpg, .png, .bmp or .gif).
+						Files need to be less than 15MB!
+						</p><br>
+						<p class="songs"></p>
 							<input type="text" name="song_title" id="song_title" placeholder= "Type title of your song"><br>
 							<label for="upload_music">Browse your music...</label>
 							<input type="file" name="upload_music" id="upload_music"><br>
