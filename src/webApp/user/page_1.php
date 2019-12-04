@@ -1,7 +1,9 @@
-					<div id="component">
-						<div id="last-songs">
-							<p class = "component">Last uploaded songs:</p><br>
-							
+	<div id="component">
+			<p class = "component">Last uploaded songs:</p><br>
+		<script type="text/javascript" src="../user/reviews/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src = "../user/home/custom.js"></script>
+
+			
 <?php
 SESSION_START();
 		include_once '../../connection/connectWithDB.php';
@@ -13,7 +15,13 @@ SESSION_START();
 			echo ' <h1> By ' . $row["name"] . '</h1></br>';}
 ?>
 							
-						</div>
-					</div>
+	</div>					
+
+	<div id= "users">
+		<input type="text" id ="search"  placeholder= "Search for user..." ><br>
+	<div id="users_content"> </div>
+
+	
+	</div>				
 					
-					
+		

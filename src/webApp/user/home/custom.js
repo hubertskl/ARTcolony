@@ -1,15 +1,15 @@
 $('#search').keyup( function(){
 	var s = $('#search').val();
-	
 	        $.ajax({
-            url: '../user/reviews/search.php',
+            url: '../user/home/search_users.php',
             data: 'usearch='+s,
             success:function (data) {
-				$('#feedback').html(data);
+				$('#users_content').html(data);
 				if (s === "") {
-				$('#feedback').empty();
+				$("#users_content").empty();
 				}
-            }
+            }	
         });
+		
 	
 });
