@@ -48,15 +48,16 @@ function checkURL(hash)
 	
 		else if(hash=="#page5")
 		loadPage_5(hash);
-	
-	
-	
-	
+
 		else if(hash=="#page7")
 		loadPage_7(hash);
 	
 		else if(hash=="#page8")
 		loadPage_8(hash);
+
+		else if(hash=="#page6")
+		loadPage_6(hash);
+
 		
 		else
 		loadPage(hash);
@@ -218,12 +219,6 @@ function loadPage_5(url)
 
 
 
-
-
-
-
-
-
 function loadPage_7(url)
 {
 	url=url.replace('#page','');
@@ -248,6 +243,9 @@ function loadPage_7(url)
 }
 
 function loadPage_8(url)
+
+function loadPage_6(url)
+
 {
 	url=url.replace('#page','');
 	
@@ -255,7 +253,11 @@ function loadPage_8(url)
 	
 	$.ajax({
 		type: "POST",
+
 		url: "../user/page_8.php",
+
+		url: "../user/page_6.php",
+
 		data: 'page='+url,
 		dataType: "html",
 		success: function(msg){
