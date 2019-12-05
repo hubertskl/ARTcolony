@@ -7,6 +7,22 @@ body {
 	background-color: black;
 }
 
+.footer {
+   clear: both;
+   position: relative;
+   background-color:black;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: white;
+   text-align:center;
+}
+
+#footer_text a{
+   font-size:20px;
+   font-family: AlegreyaSansThin;
+}
+
 @font-face {
 	font-family: AlegreyaSansBold;
 	src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Bold.otf");
@@ -151,12 +167,42 @@ h2{
 	margin-bottom: 4%;
 }
 
-.logo{
-	float:left;
+#musicSidebar .logo {
+	float:center;
+	width:300px;
+	height:300px;
+}
+
+.logo #cover {
+	float:center;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	max-width: 100%;
+    max-height: 100%;
+    height: auto;
+	width: auto;
+}
+
+#edited_song .edited_song_cover {
+	float:center;
+	width:150px;
+	height:150px;
+}
+
+.edited_song_cover #cover {
+	float:center;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+	max-width: 100%;
+    max-height: 100%;
+    height: auto;
+	width: auto;
+	border: 1px solid white;
 }
 
 .player{
-	
 	margin: 7px;
 }
 
@@ -215,7 +261,16 @@ h2{
 	width: 40%;
 	display: inline;
 }
+
+
+#scroll{
+	overflow-y: scroll;
+	height: 400px;
+}
+
+
 */
+
 p.add_song{
 	font-size: 30px;
 	font-family:Lemon;
@@ -526,6 +581,16 @@ p.user_name{
 	margin-left: 5%;
 	margin-right: auto;
 	width:40%;
+	height: 400px;
+}
+
+#songs_manager {
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto;
+	width:40%;
+	height: 400px;
 }
 
 #all_songs {
@@ -543,8 +608,20 @@ p.user_name{
 	margin-top:5%;
 	float:right;
 	margin-left: auto;
+
 	margin-right: 5%;
 	width: 40%;
+	height: 400px;
+}
+
+#songs_status {
+	margin-top:5%;
+	float:right;
+	margin-left: auto;
+
+	margin-right: 5%;
+	width: 40%;
+	height: 400px;
 }
 
 #all_playlists_table {
@@ -580,6 +657,26 @@ p.user_name{
 	margin-top:5%;
 	float:right;
 	margin-left: auto;
+
+	margin-right: 5%;
+	width: 40%;
+}
+
+#edited_song {
+	font-family: Lemon;
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	margin-right: auto;
+	width: 40%;
+}
+
+#edit_song {
+	font-family: Lemon;
+	margin-top:5%;
+	float:right;
+	margin-left: auto;
+
 	margin-right: 5%;
 	width: 40%;
 }
@@ -613,6 +710,22 @@ p.user_name{
 	margin-left: 5%;
 	margin-right: auto;
 	width:40%;
+}
+
+
+
+
+
+/*Playlists*/
+
+#about {
+	font-family: Lemon;
+	margin-top:5%;
+	margin-bottom:20%;
+	float:left;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 90%;
 }
 
 /*Playlists*/

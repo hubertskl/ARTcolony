@@ -11,9 +11,11 @@ SESSION_START();
 		$result = $db->query($sql);
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			echo '<h2>' . $row["media_title"] . ' </h2>';
-			echo ' <h1> By ' . $row["name"] . '</h1></br>';}
-?>
+			echo '<form action = "../user/music_player/addPlaylist.php?track=' . $row["id_media"] . '" method="post" class="track">
+				<input type = "submit" name = "track" input id="btn" class="btn" value = " ' . $row["media_title"] . '"></input>';
+			echo ' <h1> By ' . $row["name"] . '</h1></br>';
+			echo '</form>';
+			}?>
 							
 	</div>					
 
