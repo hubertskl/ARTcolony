@@ -138,14 +138,6 @@ h2{
 	display: inline-block;
 }
 
-.component{
-	
-}
-
-#last-songs{
-	
-}
-
 #audio-player-cont{
 	width: 300px;
 	height: 400px;
@@ -305,7 +297,18 @@ p.component{
 	word-break:break-word;
 }
 
+#users{
+	margin-top:5%;
+	float:right;
+	margin-left: auto;
+	margin-right: 5%;
+	width: 40%;
+}
+
 /*Home page style end*/
+
+
+
 
 /*Reviews style*/
 #songs{
@@ -473,8 +476,50 @@ div.add_button input:hover {
 }
 /*Reviews style - end*/
 
-/*Playlists*/
+/*Users pages style*/
+#info{
+	float:left;
+	margin-left: 5%;
+	width: 40%;
+	display: inline;
+}
 
+#users_songs{
+	margin-top:5%;
+	float:right;
+	width: 40%;
+	background-color:#1a1a1a;
+
+}
+#users_content{
+	align-content: left;
+}
+
+.users_content{
+	align-content: left;
+}
+.user_name{
+	position:center;
+	text-align: center;
+
+}
+
+p.user_login{
+	font-size: 50px;
+	font-family:Lemon;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+p.user_name{
+	font-size: 35px;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+/*Users pages - end*/
+
+/*Playlists*/
 #add_playlist {
 	margin-top:5%;
 	float:left;
@@ -571,12 +616,11 @@ div.add_button input:hover {
 }
 
 /*Playlists*/
+
 /*user profile style - important*/
 .first-column{
     width: 49%;
     display: table;
-
-
 }
 .second-column{
     width: 49%;
@@ -686,3 +730,4 @@ input[type=password]:hover{
 	color: #E63C49;
 	transition: 0.4s;
 }
+/*user profile style - important - END*/
