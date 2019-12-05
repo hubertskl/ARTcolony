@@ -1,4 +1,4 @@
-
+<?php
 SESSION_START();
 
 include_once '../../connection/connectWithDB.php';
