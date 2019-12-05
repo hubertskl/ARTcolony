@@ -30,5 +30,7 @@ Cover needs to be less than 15MB!
 			<label for="upload_cover">Browse your cover...</label>
 			<input type="file" name="upload_cover" id="upload_cover"><br><br>
 			<input type="submit" value="Submit" name="upload" id="submit_music" class="submit_music">
-		</form>
+		</form><br>
+		
+</div><br>
 </div>
