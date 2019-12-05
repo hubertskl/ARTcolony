@@ -94,7 +94,7 @@ a{
     top: 0;
     left: 0;
     background-color: #111;
-	background-image: url("");
+	/*background-image: url("");*/
     overflow-x: hidden;
     transition: 0.5s;
     white-space: nowrap;
@@ -132,11 +132,11 @@ a{
 h2{
 	padding: 10px;
 	font-size: 25px;
+	width: 90%;
 	font-family:AlegreyaSansThin;
 	color:white;
 	display: inline-block;
 }
-
 
 #audio-player-cont{
 	width: 300px;
@@ -197,7 +197,7 @@ h2{
 	margin-left:5px;
 }
 /*User page style*/
-
+/*
 #upload_form{
 	margin-top:1%;
 	float:left;
@@ -215,7 +215,7 @@ h2{
 	width: 40%;
 	display: inline;
 }
-
+*/
 p.add_song{
 	font-size: 30px;
 	font-family:Lemon;
@@ -286,8 +286,15 @@ input#submit_music[type=submit]:hover{
 	float:left;
 	margin-left: 5%;
 	margin-right: auto;
-	width: 50%;
+	width: 60%;
 	display: inline;
+}
+p.component{
+	font-size: 30px;
+	font-family:Lemon;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
 }
 
 #users{
@@ -298,15 +305,10 @@ input#submit_music[type=submit]:hover{
 	width: 40%;
 }
 
-p.component{
-	font-size: 30px;
-	font-family:Lemon;
-	color:white;
-	display: inline-block;
-	word-break:break-word;
-}
-
 /*Home page style end*/
+
+
+
 
 /*Reviews style*/
 #songs{
@@ -475,7 +477,6 @@ div.add_button input:hover {
 /*Reviews style - end*/
 
 /*Users pages style*/
-
 #info{
 	float:left;
 	margin-left: 5%;
@@ -490,7 +491,6 @@ div.add_button input:hover {
 	background-color:#1a1a1a;
 
 }
-
 #users_content{
 	align-content: left;
 }
@@ -498,11 +498,9 @@ div.add_button input:hover {
 .users_content{
 	align-content: left;
 }
-
 .user_name{
 	position:center;
 	text-align: center;
-	 
 
 }
 
@@ -519,17 +517,9 @@ p.user_name{
 	display: inline-block;
 	word-break:break-word;
 }
-
-
-
-
 /*Users pages - end*/
 
-
-
-
 /*Playlists*/
-
 #add_playlist {
 	margin-top:5%;
 	float:left;
@@ -626,3 +616,118 @@ p.user_name{
 }
 
 /*Playlists*/
+
+/*user profile style - important*/
+.first-column{
+    width: 49%;
+    display: table;
+}
+.second-column{
+    width: 49%;
+	display: table;
+}
+.main-box{
+    display: flex;
+    margin-left: 1%;
+}
+.user-photo{
+	width: 200px;
+	height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.user-photo-style{
+    padding: 0 5%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.info-text{
+    margin-top: 4%;
+}
+.profile-text{
+    font-size: 25px;
+    width:100%;
+    color: white;
+    font-family: AlegreyaSansThin;
+    text-align: center;
+}
+.profile-box{
+	margin: auto;
+	width: 60%;
+	padding: 3%;
+	border: 1px solid white;
+
+}
+.button-box{
+    text-align: right;
+	text-align: right;
+}
+.button-box a{
+	font-family: AlegreyaSansThin;
+	text-align: center;
+	font-size: 20px;
+}
+.button-inside{
+	width: 80%;
+}
+
+.edit-box form span{
+	color: white;
+}
+input[type=password] {
+	font-size: 35px;
+	font-family: AlegreyaSansThin;
+	border: none;
+	color: white;
+	background-color: transparent;
+	border-bottom: 1px solid white;
+}
+input[type=password]:hover{
+	border-bottom:1px solid #E63C49;
+	transition: 0.4s;
+}
+.edit-box{
+	font-family: AlegreyaSansThin;
+	width: 90%;
+	margin-right:auto;
+	margin-left: auto;
+	display: flex;
+	padding: 2%;
+}
+.section-edit1{
+	width: 50%;
+}
+.section-edit2{
+	width: 50%;
+}
+.edit-button-submit{
+	float: right;
+	margin-rght: 5%;
+	padding-right: 25%;
+	padding-top: 2%;
+}
+.edit-button-submit input{
+	width: 100px;
+
+	color: white;
+	font-family: AlegreyaSansThin;
+	text-align: center;
+}
+.edit-button-submit input[type=submit]:hover {
+
+	font-size: 23px;
+	color: #E63C49;
+	text-decoration: none;
+	transition: 0.4s;
+}
+#upload_photo {
+	opacity: 0;
+	position: absolute;
+	z-index: -1;
+}
+.section-edit1 label:hover{
+	color: #E63C49;
+	transition: 0.4s;
+}
+/*user profile style - important - END*/
