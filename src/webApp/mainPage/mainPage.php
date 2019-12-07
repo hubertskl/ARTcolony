@@ -273,17 +273,17 @@ if (!isset($_SESSION['logged_id']))
 					
 					function make_chat_dialog_box(to_user_id, to_user_name)
 					 {
-					  var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" title="You have chat with '+to_user_name+'">';
-					  modal_content += '<div style="height:400px; border:1px solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
+					  var modal_content = '<div id="user_dialog_'+to_user_id+'" class="user_dialog" style="background-color: #111, color: #fff;" title="'+to_user_name+'">';
+					  modal_content += '<div style="height:400px; background-color: #111; border:none solid #ccc; overflow-y: scroll; margin-bottom:24px; padding:16px;" class="chat_history" data-touserid="'+to_user_id+'" id="chat_history_'+to_user_id+'">';
 					  modal_content += fetch_user_chat_history(to_user_id);
 					  modal_content += '</div>';
 					  modal_content += '<div class="form-group">';
-					  modal_content += '<textarea name="chat_message_'+to_user_id+'" id="chat_message_'+to_user_id+'" class="form-control"></textarea>';
+					  modal_content += '<textarea name="chat_message_'+to_user_id+'" id="chat_message_'+to_user_id+'" class="form-control" style="background-color: #111; color: white; border: none; width:395px; 	font-family: AlegreyaSansThin; src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf");"></textarea>';
 					  modal_content += '</div><div class="form-group" align="right">';
-					  modal_content+= '<button type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat">Send</button></div></div>';
+					  modal_content+= '<button type="button" name="send_chat" id="'+to_user_id+'" class="btn btn-info send_chat chat_btn">Send</button></div></div>';
 					  $('#user_model_details').html(modal_content);
 					 }
-
+					 
 					$(document).on('click', '.start_chat', function(){
 					  var to_user_id = $(this).data('touserid');
 					  var to_user_name = $(this).data('tousername');

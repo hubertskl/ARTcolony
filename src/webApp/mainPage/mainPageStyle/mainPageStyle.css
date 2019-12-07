@@ -132,6 +132,21 @@ a{
     top: 0;
     right: 0;
     background-color: #111;
+	background-image: url("../../mainWebStyle/chatsidebar.png");
+    overflow-x: hidden;
+    transition: 0.5s;
+    white-space: nowrap;
+}
+
+.chatSidebar:hover {
+    height: 100%;
+    width: 30px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+	background-image: url("");
     overflow-x: hidden;
     transition: 0.5s;
     white-space: nowrap;
@@ -143,6 +158,36 @@ a{
     left: 25px;
     font-size: 36px;
     margin-right: 50px;
+}
+
+.chat_btn {
+    background-color: #111;
+	font-family: Lemon;
+	src: url("../../../../Graphics/Fonts/Lemon Tuesday.otf");
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	text-align: center;
+	display: inline-block;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+.greencircle {
+  height: 10px;
+  width: 10px;
+  background-color: #32cd32;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.redcircle {
+  height: 10px;
+  width: 10px;
+  background-color: #ff2400;
+  border-radius: 50%;
+  z-index: -1;
 }
 
 h2{
