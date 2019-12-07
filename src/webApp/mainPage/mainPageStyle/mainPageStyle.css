@@ -110,7 +110,7 @@ a{
     top: 0;
     left: 0;
     background-color: #111;
-	/*background-image: url("");*/
+	background-image: url("");
     overflow-x: hidden;
     transition: 0.5s;
     white-space: nowrap;
@@ -148,7 +148,7 @@ a{
 h2{
 	padding: 10px;
 	font-size: 25px;
-	width: 90%;
+	/*width: 90%;*/
 	font-family:AlegreyaSansThin;
 	color:white;
 	display: inline-block;
@@ -243,7 +243,7 @@ h2{
 	margin-left:5px;
 }
 /*User page style*/
-/*
+
 #upload_form{
 	margin-top:1%;
 	float:left;
@@ -269,7 +269,7 @@ h2{
 }
 
 
-*/
+
 
 p.add_song{
 	font-size: 30px;
