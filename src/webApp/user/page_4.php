@@ -22,7 +22,7 @@ SESSION_START();
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			echo '<h2>' . $row["media_title"] . ' </h2>';
-			echo ' <h1> By ' . $row["name"] . '</h1></br>';
+			echo ' <h1 class="right"> By ' . $row["name"] . '</h1></br>';
 			echo ' <p>' . $row["review_text"] . '</p></br>';
 			
 			

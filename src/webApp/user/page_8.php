@@ -11,11 +11,34 @@
 		//unset($_SESSION['song_info']);
 		?>
 		<br>
-		<p class="songs">Title: <?php echo $song_title; ?></p><br>
+		<p class="song_inf2">Title: <?php echo $song_title; ?></p><br>
 		<div class="edited_song_cover">
 			<img id="cover" src="../user/covers/accepted_covers/<?php echo $song_cover; ?>">
 		</div>
-		<p class="songs">Great: <?php echo $song_counter; ?></p><br>
+		<p class="song_inf2">Great: <?php echo $song_counter; ?></p><br>
+		
+	<?php
+
+	if(isset($_SESSION['song_reviews']) && !empty($_SESSION['song_reviews'])) 
+	{
+		$song_reviews= $_SESSION['song_reviews'];
+		$review_user = $_SESSION['reviews_user'];
+		$review_id = $_SESSION['review_id'];
+
+		foreach (array_combine($_SESSION['song_reviews'], $_SESSION['reviews_user']) as $svalue => $uvalue){
+			foreach ($review_id as $rvalue){
+				echo '<p class="song_inf2">Reviews: </p>';
+				echo '<p class ="song_inf2" >' . $svalue . '&nbsp; &nbsp; &nbsp; <form action = "../user/home/user_profile.php?id=' . $rvalue. '" method="post" class="id_user">
+					<input type = "submit" id="btn" class="btn" value = " ' . $uvalue. '" ></input> </br> </form> </p></br>';
+			}
+		}
+	}
+	else  
+	{	
+		echo '<p class ="songs" >' . $song_title. ' doesn`t have any review yet</p><br>';
+	}
+?>	
+		
 </div>
 
 <div id="edit_song">
@@ -34,3 +57,26 @@ Cover needs to be less than 15MB!
 		
 </div><br>
 </div>
+
+<script>
+	$(".id_user").submit(function(e) {
+
+    var form = $(this);
+    var url = form.attr('action');
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: form.serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+			   
+               window.location.href = "/src/webApp/mainPage/mainPage.php#page6"; 
+		
+           }
+         });
+		e.preventDefault(); // avoid to execute the actual submit of the form.
+
+});
+	
+</script>

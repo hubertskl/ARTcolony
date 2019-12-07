@@ -36,19 +36,23 @@ if (isset($_GET['id'])) {
 				array_push($_SESSION['review_media_title'],$reviews['media_title']);
 			}
 
-			$users_info = $db->prepare("SELECT name, family_name, login FROM users  WHERE id_user=:id");
+			$users_info = $db->prepare("SELECT id_user, name, family_name, login, user_photo FROM users  WHERE id_user=:id");
 			$users_info->bindParam(':id', $id_user);
 			$users_info->execute();
 			
 			$_SESSION['user_name'] = array();
 			$_SESSION['user_family_name'] = array();
 			$_SESSION['user_login'] = array();
+			$_SESSION['user_pic'] = array();
+			$_SESSION['user_id'] = array();
 			while($info = $users_info->fetch(PDO::FETCH_ASSOC)) {
 				array_push($_SESSION['user_name'],$info['name']);
 				array_push($_SESSION['user_family_name'],$info['family_name']);
 				array_push($_SESSION['user_login'],$info['login']);
+				array_push($_SESSION['user_pic'],$info['user_photo']);
+				array_push($_SESSION['user_id'],$info['id_user']);
 			}
-			
+			echo json_encode($_SESSION['user_pic']);
 			header('Location: /src/webApp/mainPage/mainPage.php#page6');
 }
 ?>

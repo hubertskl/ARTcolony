@@ -1,6 +1,5 @@
 <?php
 SESSION_START();
-
 include_once '../../connection/connectWithDB.php';
 if($_SESSION['id_user']) {
 $idUser = $_SESSION['id_user'];
