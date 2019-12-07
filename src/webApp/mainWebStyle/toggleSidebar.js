@@ -1,7 +1,7 @@
 var mini = true;
     function toggleMusicSidebar() {
         if (mini) {
-            document.getElementById("musicSidebar").style.width = "350px";
+            document.getElementById("musicSidebar").style.width = "325px";
 			document.getElementById("audio-player-cont").style.visibility = "visible";			
             this.mini = false;
         } else {

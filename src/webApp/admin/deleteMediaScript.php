@@ -15,7 +15,7 @@ if($_GET['id']) {
             unlink($path);
             $deletePlace=1;
             if($deletePlace=1){
-                $deleteMedia=$db->prepare('DELETE FROM media WHERE id_media=:id_m');
+                $deleteMedia=$db->prepare('UPDATE media SET is_accepted=-1 WHERE id_media=:id_m');
                 $deleteMedia->bindParam('id_m', $idMedia);
                 $deleteMedia->execute();
             }

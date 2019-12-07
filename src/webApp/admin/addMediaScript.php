@@ -25,6 +25,11 @@ if($_GET['id']) {
                 $updateMedia->bindParam('value1', $value);
                 $updateMedia->bindParam('id_m', $idMedia);
                 $updateMedia->execute();
+				
+				
+				$updateResources=$db->prepare('UPDATE users SET user_resources = user_resources + 200 WHERE id_user=:user');
+                $updateResources->bindParam(':user', $ownerID);
+                $updateResources->execute();
             }
 			
 			if (file_exists($pathCover)) {

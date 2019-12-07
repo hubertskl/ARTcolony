@@ -4,6 +4,7 @@
 	
 	if(isset($_POST['email']))
 	{
+	    $user_photo='user1.jpg';
 		$allright=true;
 		
 			if(isset($_POST['name']))
@@ -44,7 +45,7 @@
 		$email=$_POST['email'];
 		$email2=filter_var($email, FILTER_SANITIZE_EMAIL);  
 		
-		if((filter_var($email2,FILTER_SANITIZE_EMAIL)==false) || ($email2!=$email))
+		if((filter_var($email2,FILTER_VALIDATE_EMAIL)==false) || ($email2!=$email))
 		{
 			$allright=false;
 			$_SESSION['e_email']="Invalid email";
@@ -103,23 +104,38 @@
 				if($allright==true)
 				{
 					
-					$result5=$db->prepare("INSERT INTO users (login, password, name, family_name, email) VALUES (:username,:password,:name,:family_name,:email)"); 
+					$result5=$db->prepare("INSERT INTO users (login, password, name, family_name, email, user_photo) VALUES (:username,:password,:name,:family_name,:email,:user_photo)");
 					
 					$result5->bindParam(':username',$username);
 					$result5->bindParam(':password',$passwordhash);
 					$result5->bindParam(':name',$name);
 					$result5->bindParam(':family_name',$surname);
 					$result5->bindParam(':email',$email);
-					
+                    $result5->bindParam(':user_photo',$user_photo);
 					
 					
 					$result5->execute();
-					
-					
-						$_SESSION['successful_registration']=true;
-						
+
+
+					$_SESSION['successful_registration']=true;
+
+						/*create user folder*/
+                        $result6=$db->prepare("SELECT * FROM users WHERE login=:login");
+                        $result6->bindParam(':login',$username);
+                        $result6->execute();
+                        $userInfo=$result6->fetch();
+                        $id=$userInfo['id_user'];
+
+                        $path = "../user/uploads/$id/user_photo";
+                        if (!file_exists($path)) {
+                            mkdir($path, 0777, true);
+                        }
+                        $oldpath="../user/uploads/default_user_photo/$user_photo";
+                        $newPath="../user/uploads/$id/user_photo/$user_photo";
+                    if (file_exists($oldpath)) {
+                        copy($oldpath,$newPath);
+                    }
 						header('Location: afterRegistration.php');
-				
 				}
 			
 		}
