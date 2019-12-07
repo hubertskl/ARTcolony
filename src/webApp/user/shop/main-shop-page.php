@@ -56,36 +56,6 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <div class="row">
-                <?php
-                if(isset($_SESSION['logged_id'])){
-                require_once '../../../connection/connectWithDB.php';
-                $userID=$_SESSION['id_user'];
-                $acceptedValue=1;
-                $selectQuery = $db->prepare('SELECT * FROM media WHERE id_owner <> :user_id AND is_accepted=:accValue'); /* "<>" means in sql !=*/
-                $selectQuery->bindParam(':user_id', $userID);
-                $selectQuery->bindParam(':accValue', $acceptedValue);
-                $selectQuery->execute();
-
-                while($mediaBox = $selectQuery->fetch()) {
-                    $mediaID=$mediaBox['id_media'];
-                    ?>
-                    <div class="card-box col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
-                    <div class="card">
-                      <img class="card-img-top card-img-top-new-style" src="../covers/accepted_covers/<?php echo $mediaBox['media_cover']; ?>" alt="<?php echo $mediaBox['media_title']; ?>">
-                        <div class="card-body">
-                            <h5 class="card-title">Title: <?php echo $mediaBox['media_title']; ?></h5>
-                            <h6 class="card-title">Price: <?php echo $mediaBox['media_cost'];?></h6>
-                            <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the card's content.</p>-->
-                            <div class="card-button-style">
-                              <a class="btn btn-outline-secondary add-button-style" href="orderScript.php?id=<?php echo $mediaID ?>">add</a>
-                            </div>
-                        </div>
-                    </div>
-                    </div><?php }} ?>
-            </div>
             <?php
             if (isset($_SESSION['bad_shop']))
             {
@@ -116,6 +86,36 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
             }
 
             ?>
+            <div class="row">
+                <?php
+                if(isset($_SESSION['logged_id'])){
+                require_once '../../../connection/connectWithDB.php';
+                $userID=$_SESSION['id_user'];
+                $acceptedValue=1;
+                $selectQuery = $db->prepare('SELECT * FROM media WHERE id_owner <> :user_id AND is_accepted=:accValue'); /* "<>" means in sql !=*/
+                $selectQuery->bindParam(':user_id', $userID);
+                $selectQuery->bindParam(':accValue', $acceptedValue);
+                $selectQuery->execute();
+
+                while($mediaBox = $selectQuery->fetch()) {
+                    $mediaID=$mediaBox['id_media'];
+                    ?>
+                    <div class="card-box col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
+                    <div class="card">
+                      <img class="card-img-top card-img-top-new-style" src="../covers/accepted_covers/<?php echo $mediaBox['media_cover']; ?>" alt="<?php echo $mediaBox['media_title']; ?>">
+                        <div class="card-body">
+                            <h5 class="card-title">Title: <?php echo $mediaBox['media_title']; ?></h5>
+                            <h6 class="card-title">Price: <?php echo $mediaBox['media_cost'];?></h6>
+                            <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>-->
+                            <div class="card-button-style">
+                              <a class="btn btn-outline-secondary add-button-style" href="orderScript.php?id=<?php echo $mediaID ?>">add</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div><?php }} ?>
+            </div>
         </div>
         <div id="download-music-container" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 resource-nav">

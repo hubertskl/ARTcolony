@@ -53,6 +53,35 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
 
             </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <?php
+            if (isset($_SESSION['delete_problem']))
+            {
+                echo '<div class="alert alert-danger alert-dismissible fade show">Problem with delete order!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>';
+                unset($_SESSION['delete_problem']);
+            }
+            if (isset($_SESSION['low_resources']))
+            {
+                echo '<div class="alert alert-danger alert-dismissible fade show">You dont have enought resources to buy!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>';
+                unset($_SESSION['low_resources']);
+            }
+            if (isset($_SESSION['problem_delete_order']))
+            {
+                echo '<div class="alert alert-danger alert-dismissible fade show">Cant delete order!
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>';
+                unset($_SESSION['problem_delete_order']);
+            }
+            ?>
             <div class="table-responsive">
             <table class="table table-striped table-dark table-hover table-sm table-text">
                 <thead>
@@ -95,23 +124,6 @@ if($_SESSION['login']=='admin' && $_SESSION['is_admin']=='1')
 
                 </tbody></table>
             </div>
-            <?php
-            if (isset($_SESSION['delete_problem']))
-            {
-                echo '<span style="color:red;">Problem with delete order!</span>';
-                unset($_SESSION['delete_problem']);
-            }
-            if (isset($_SESSION['low_resources']))
-            {
-                echo '<span style="color:red;">You dont have enought resources to buy!</span>';
-                unset($_SESSION['low_resources']);
-            }
-            if (isset($_SESSION['problem_delete_order']))
-            {
-                echo '<span style="color:red;">Cant delete order!</span>';
-                unset($_SESSION['problem_delete_order']);
-            }
-            ?>
         </div>
 
         </div>
