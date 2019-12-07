@@ -1,7 +1,8 @@
-	<div id="component">
+	<div id="info">
 			<p class = "component">Last uploaded songs:</p><br>
 		<script type="text/javascript" src="../user/reviews/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src = "../user/home/custom.js"></script>
+	<script type="text/javascript" src = "../user/home/custom_song.js"></script>
 
 			
 <?php
@@ -22,6 +23,10 @@ SESSION_START();
 	<div id= "users">
 		<input type="text" id ="search"  placeholder= "Search for user..." ><br>
 	<div id="users_content"> </div>
+	
+	<div id= "searched_songs">
+		<input type="text" id ="search2"  placeholder= "Search for song..." ><br>
+	<div id="songs_content"> </div>
 
 	
 	</div>				

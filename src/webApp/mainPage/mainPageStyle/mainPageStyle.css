@@ -148,7 +148,6 @@ a{
 h2{
 	padding: 10px;
 	font-size: 25px;
-	/*width: 90%;*/
 	font-family:AlegreyaSansThin;
 	color:white;
 	display: inline-block;
@@ -376,6 +375,7 @@ p.component{
 }
 
 #recent{
+	display: inline-block;
 	margin-top:5%;
 	float:right;
 	margin-left: auto;
@@ -437,6 +437,16 @@ a{
 	font-family:LemonTuesday;
 	color:white;
 }
+
+h1.right{
+	text-align:right;float:right;
+	padding: 10px;
+	font-size: 20px;
+	font-family:Lemon;
+	color:white;
+	display: inline-block;
+}
+
 
 input[type=submit]{
 
@@ -531,12 +541,13 @@ div.add_button input:hover {
 }
 /*Reviews style - end*/
 
-/*Users pages style*/
+/*Users pages style (6)*/
 #info{
 	float:left;
 	margin-left: 5%;
 	width: 40%;
 	display: inline;
+	margin-top: 3%;
 }
 
 #users_songs{
@@ -554,8 +565,7 @@ div.add_button input:hover {
 	align-content: left;
 }
 .user_name{
-	position:center;
-	text-align: center;
+	display: inline;
 
 }
 
@@ -563,8 +573,10 @@ p.user_login{
 	font-size: 50px;
 	font-family:Lemon;
 	color:white;
-	display: inline-block;
+	display: inline;
 	word-break:break-word;
+	float: right;
+	margin-right: 30%;
 }
 p.user_name{
 	font-size: 35px;
@@ -572,7 +584,75 @@ p.user_name{
 	display: inline-block;
 	word-break:break-word;
 }
+.users_photos{
+	width: 200px;
+	height: 200px;
+
+}
+.users_photos_style{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+	float: left;
+	margin-left: 15%;
+
+	
+}
+
+
 /*Users pages - end*/
+
+/*Songs pages style (9)*/
+#song_info{
+	float:left;
+	margin-left: 5%;
+	width: 80%;
+	display: inline;
+}
+
+#song_spec{
+	margin-top:5%;
+	float:left;
+	margin-left: 5%;
+	width: 80%;
+	display: inline;
+}
+
+p.song_title_cover{
+	font-size: 50px;
+	font-family:Lemon;
+	color:white;
+	display: inline;
+	word-break:break-word;
+	float: right;
+	margin-right: 50%;
+}
+p.song_inf{
+	font-size: 35px;
+	color:white;
+	display: inline-block;
+	word-break:break-word;
+}
+.songs_covers{
+	width: 200px;
+	height: auto;
+
+}
+.songs_covers_style{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+	float: left;
+	margin-left: 40%;
+	margin-top: 10%;
+	
+}
+
+
+/*Songs pages - end*/
+
+
+
 
 /*Playlists*/
 #add_playlist {

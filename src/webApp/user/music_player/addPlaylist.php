@@ -206,6 +206,19 @@ if (isset($_GET['editsong'])) {
 		array_push($song_info, $row['review_counter']);
 		}
 		
+	$song_reviews = $db->prepare("SELECT reviews.id_review, reviews.review_text, reviews.id_media, media.id_media, reviews.id_user, users.id_user, users.login FROM reviews INNER JOIN media ON media.id_media = reviews.id_media INNER JOIN users ON reviews.id_user = users.id_user WHERE media.id_media=:id");
+	$song_reviews->bindParam(':id', $song_id);
+	$song_reviews->execute();
+	
+	$_SESSION['reviews_user'] = array(); 
+	$_SESSION['song_reviews'] = array(); 
+	$_SESSION['review_id'] = array(); 
+	while($reviews = $song_reviews->fetch(PDO::FETCH_ASSOC)) {
+	array_push($_SESSION['song_reviews'],$reviews['review_text']); 
+	array_push($_SESSION['reviews_user'],$reviews['login']); 
+	array_push($_SESSION['review_id'],$reviews['id_user']); 
+	}
+	echo json_encode($_SESSION['review_id']);
 	$_SESSION['song_info'] = $song_info;
 	header('Location: /src/webApp/mainPage/mainPage.php#page8');
 }
