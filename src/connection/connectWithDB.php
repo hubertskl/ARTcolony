@@ -36,7 +36,7 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $db)
 	 AND to_user_id = '".$to_user_id."') 
 	 OR (from_user_id = '".$to_user_id."' 
 	 AND to_user_id = '".$from_user_id."') 
-	 ORDER BY timestamp DESC
+	 ORDER BY timestamp 
 	 ";
 	 $statement = $db->prepare($query);
 	 $statement->execute();
@@ -54,13 +54,10 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $db)
 	   $user_name = '<b class="text-danger">'.get_user_name($row['from_user_id'], $db).'</b>';
 	  }
 	  $output .= '
-	  <li style="border-bottom:1px dotted #ccc">
-	   <p>'.$user_name.' - '.$row["chat_message"].'
-		<div align="right">
-		 - <small><em>'.$row['timestamp'].'</em></small>
-		</div>
-	   </p>
-	  </li>
+	  <ul>
+	   <li><p>'.$user_name.' - '.$row["chat_message"].'</p></li>
+		<li><p><div align="right" style="color: #616161; font-family: AlegreyaSansThin; src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf""> - <small>'.$row['timestamp'].'</small></div></p></li>
+		</ul>
 	  ';
 	 }
 	 $output .= '</ul>';
