@@ -615,13 +615,12 @@ div.add_button input:hover {
 }
 
 p.user_login{
-	font-size: 50px;
+	font-size: 60px;
 	font-family:Lemon;
 	color:white;
 	display: inline;
 	word-break:break-word;
 	float: right;
-	margin-right: 30%;
 }
 p.user_name{
 	font-size: 35px;
@@ -651,7 +650,7 @@ p.user_name{
 #song_info{
 	float:left;
 	margin-left: 5%;
-	width: 80%;
+	width: 70%;
 	display: inline;
 }
 
@@ -659,25 +658,32 @@ p.user_name{
 	margin-top:5%;
 	float:left;
 	margin-left: 5%;
-	width: 80%;
-	display: inline;
+	width: 90%;
 }
 
 p.song_title_cover{
-	font-size: 50px;
+	font-size: 60px;
 	font-family:Lemon;
 	color:white;
 	display: inline;
 	word-break:break-word;
 	float: right;
-	margin-right: 50%;
 }
 p.song_inf{
 	font-size: 35px;
 	color:white;
-	display: inline-block;
 	word-break:break-word;
 }
+
+
+p.song_inf_rev{
+	font-size: 37px;
+	color:white;
+	font-family:Lemon;
+	word-break:break-word;
+}
+
+
 .songs_covers{
 	width: 200px;
 	height: auto;

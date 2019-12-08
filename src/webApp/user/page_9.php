@@ -37,11 +37,12 @@ if(isset($_SESSION['song_votes'])) {
 
 
 if(isset($_SESSION['song_reviews']) && !empty($_SESSION['song_reviews'])) {
+	echo '<p class ="song_inf_rev" >' . $title. ' reviews</p><br>';
 	$song_reviews= $_SESSION['song_reviews'];
 	$review_user = $_SESSION['reviews_user'];
 
 	foreach (array_combine($song_reviews, $review_user) as $uvalue => $svalue){
-		echo '<p class ="song_inf" >' . $uvalue . '&nbsp; &nbsp; &nbsp;</p><p class ="song_inf2" >'.  $svalue  . ' </p></br>';
+		echo '<p class ="song_inf2" >' . $svalue . '</p></br><p class ="song_inf" >'.  $uvalue  . ' </p></br>';
 	}
 }
 
@@ -50,31 +51,7 @@ else  {
 }
 
 
-
-
 echo '</div>';	
 echo '</div>';		
 ?>
 	
-<script>
-	$(".id_user").submit(function(e) {
-
-    var form = $(this);
-    var url = form.attr('action');
-
-    $.ajax({
-           type: "POST",
-           url: url,
-           data: form.serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-			   
-               window.location.href = "/src/webApp/mainPage/mainPage.php#page6"; 
-		
-           }
-         });
-		e.preventDefault();
-
-});
-	
-</script>	
