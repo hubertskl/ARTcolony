@@ -80,10 +80,12 @@ if (!isset($_SESSION['logged_id']))
 		
 		</div>
 		<div id="chatSidebar" class="chatSidebar" onmouseover="toggleChatSidebar()" onmouseout="toggleChatSidebar()">
-			<div class="table-responsive">
-				<h2 align="center">Online Users</h2>
-				<div id="user_details"></div>
-				<div id="user_model_details"></div>
+			<div id="chat-cont">
+				<div class="table-responsive">
+					<h2 align="center">Online Users</h2>
+					<div id="user_details"></div>
+					<div id="user_model_details"></div>
+				</div>
 			</div>
 		
 		</div>

@@ -28,15 +28,49 @@ function fetch_user_last_activity($id_user, $db)
 	 }
 }
 
+	$secret_key = 'WS-SERVICE-KEY';
+    $secret_iv = 'WS-SERVICE-VALUE';
+    $key = hash('sha256', $secret_key);
+    $iv = substr(hash('sha256', $secret_iv), 0, 16);
+	
+	function encrypt ($msg, $key){
+		$secret_key = 'WS-SERVICE-KEY';
+		$secret_iv = 'WS-SERVICE-VALUE';
+		$key = hash('sha256', $secret_key);
+		$iv = substr(hash('sha256', $secret_iv), 0, 16);
+		$msg = base64_encode(openssl_encrypt($msg, 'AES-128-CBC', $key, 0, $iv));
+		return $msg;
+	};
+	
+	function decrypt ($msg, $key){
+		$secret_key = 'WS-SERVICE-KEY';
+		$secret_iv = 'WS-SERVICE-VALUE';
+		$key = hash('sha256', $secret_key);
+		$iv = substr(hash('sha256', $secret_iv), 0, 16);
+		$msg = openssl_decrypt(base64_decode($msg), 'AES-128-CBC', $key, 0, $iv);
+		return $msg;
+	};
+	
+	function hashword($msg, $salt){
+		$msg = crypt($msg, '$1$' . $salt . '$');
+		return $msg;
+	};
+	
+	function protect($msg){
+		$msg = mysql_real_escape_msg(trim(strip_tags(addslashes($msg))));
+		return $msg;
+	};	
+
 function fetch_user_chat_history($from_user_id, $to_user_id, $db)
 	{
+		$key = md5('message');
 	 $query = "
 	 SELECT * FROM chat_message 
 	 WHERE (from_user_id = '".$from_user_id."' 
 	 AND to_user_id = '".$to_user_id."') 
 	 OR (from_user_id = '".$to_user_id."' 
 	 AND to_user_id = '".$from_user_id."') 
-	 ORDER BY timestamp 
+	 ORDER BY timestamp DESC;
 	 ";
 	 $statement = $db->prepare($query);
 	 $statement->execute();
@@ -53,12 +87,13 @@ function fetch_user_chat_history($from_user_id, $to_user_id, $db)
 	  {
 	   $user_name = '<b class="text-danger">'.get_user_name($row['from_user_id'], $db).'</b>';
 	  }
-	  $output .= '
+	  	  $output .= '
 	  <ul>
-	   <li><p>'.$user_name.' - '.$row["chat_message"].'</p></li>
+	   <li><p>'.$user_name.' - '.decrypt($row["chat_message"], $key).'</p></li>
 		<li><p><div align="right" style="color: #616161; font-family: AlegreyaSansThin; src: url("../../../../Graphics/Fonts/AlegreyaSansSC-Thin.otf""> - <small>'.$row['timestamp'].'</small></div></p></li>
 		</ul>
 	  ';
+	  
 	 }
 	 $output .= '</ul>';
 	 $query = "

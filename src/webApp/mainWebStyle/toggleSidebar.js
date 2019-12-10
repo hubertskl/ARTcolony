@@ -13,10 +13,13 @@ var mini = true;
     }
 	function toggleChatSidebar() {
         if (mini) {
-            document.getElementById("chatSidebar").style.width = "250px";
+            document.getElementById("chatSidebar").style.width = "325px";
+			document.getElementById("chat-cont").style.visibility = "visible";
             this.mini = false;
         } else {
             document.getElementById("chatSidebar").style.width = "30px";
+			document.getElementById("chat-cont").style.visibility = "hidden";
+			document.getElementById("chat-cont").style.transition = "all 0.5s";
             this.mini = true;
         }
     }

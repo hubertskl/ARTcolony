@@ -51,24 +51,21 @@ if (!isset($_SESSION['logged_id']))
 	 $output .= '
 	 <style>
 		.chat_btn {
-		  background-color: #111;
-		  font-family: Lemon;
-		  src: url("../../../../Graphics/Fonts/Lemon Tuesday.otf");
+		  background-color: none;
+		  font-family: AlegreyaSansThin;
 		  color: white;
 		  border: none;
-		  padding: 10px 20px;
+		  padding: 5px 5px;
 		  text-align: center;
 		  display: inline-block;
 		  font-size: 20px;
-		  margin: 4px 2px;
 		  cursor: pointer;
 		}
 	</style>
 	 <tr>
-	  <td><p>'.$status.'</p></td>
-	  <td><p>'  .$row['login'].'</p></td>
-	  <td><p>'.count_unseen_message($row['id_user'], $_SESSION['id_user'], $db).'</p></td>
-	  <td><button type="button" class="btn start_chat chat_btn" style="" data-touserid="'.$row['id_user'].'" data-tousername="'.$row['login'].'">Chat</button></td>
+	  <td>'.$status.'</td>
+	  <td><button type="button" class="btn start_chat chat_btn" style="" data-touserid="'.$row['id_user'].'" data-tousername="'.$row['login'].'">'  .$row['login'].'</button></td>
+	  <td><p CLASS="chat_btn">'.count_unseen_message($row['id_user'], $_SESSION['id_user'], $db).'</p></td>
 	 </tr>
 	 ';
 	}
