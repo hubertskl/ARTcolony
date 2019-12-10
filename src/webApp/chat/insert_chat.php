@@ -13,22 +13,27 @@ if (!isset($_SESSION['logged_id']))
 	
 	require_once '../../connection/connectWithDB.php';
 
-$data = array(
+/*$data = array(
  ':to_user_id'  => $_POST['to_user_id'],
  ':from_user_id'  => $_SESSION['id_user'],
  ':chat_message'  => $_POST['chat_message'],
  ':status'   => '1'
-);
+);*/
 
+ $to_user_id  = $_POST['to_user_id'];
+ $from_user_id  = $_SESSION['id_user'];
+ $chat_message  = $_POST['chat_message'];
+ $status = '1';
+ 
 $query = "
 INSERT INTO chat_message 
 (to_user_id, from_user_id, chat_message, status) 
-VALUES (:to_user_id, :from_user_id, :chat_message, :status)
+VALUES ($to_user_id, $from_user_id, '".encrypt($chat_message, $key)."', $status)
 ";
 
 $statement = $db->prepare($query);
 
-if($statement->execute($data))
+if($statement->execute())
 {
  echo fetch_user_chat_history($_SESSION['id_user'], $_POST['to_user_id'], $db);
 }
